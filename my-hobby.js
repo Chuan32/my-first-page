@@ -188,7 +188,7 @@ let friend= {
     age:20,
     goal:"前端工程师",
     city:"中国",
-    hobby:"打篮球"
+    hobby:"打篮球，打羽毛球"
 };
 function showFriend() {
     let {name,age,goal,city,hobby} = friend;
