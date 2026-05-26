@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学习进度 - 前端入门（全记录）</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background: #f0f2f5;
+            color: #333;
+            padding: 40px;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 36px;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 40px;
+        }
+        .section {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 24px;
+        }
+        .section h2 {
+            color: #2c3e50;
+            font-size: 22px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #3498db;
+        }
+        .section h3 {
+            color: #2c3e50;
+            font-size: 17px;
+            margin: 16px 0 8px;
+        }
+        .topic {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .topic:last-child { border-bottom: none; }
+        .check {
+            width: 22px; height: 22px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        .check.yes { background: #27ae60; color: #fff; }
+        .check.ok  { background: #f39c12; color: #fff; }
+        .check.no  { background: #e74c3c; color: #fff; }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #e74c3c;
+        }
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 14px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            overflow-x: auto;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        .mistake {
+            background: #fde8e8;
+            padding: 12px 16px;
+            border-left: 4px solid #e74c3c;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .mistake code { background: #fdd; }
+        .footer {
+            text-align: center;
+            color: #aaa;
+            font-size: 13px;
+            margin-top: 30px;
+        }
+        .tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 6px;
+        }
+        .tag-green { background: #d4edda; color: #155724; }
+        .tag-blue { background: #d1ecf1; color: #0c5460; }
+        .tag-orange { background: #fff3cd; color: #856404; }
+        .tag-purple { background: #e8d5f5; color: #6c2d82; }
+        .tag-red { background: #fde8e8; color: #721c24; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<h1>📖 前端学习进度 · 全记录</h1>
+<p class="subtitle">从零开始学全栈 — 川的学习笔记（每次更新）</p>
+
+<!-- ==================== 课程一览 ==================== -->
+<div class="section">
+    <h2>📋 课程总览</h2>
+    <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第1课</span> 2026-05-20 · HTML + CSS 基础</div>
+    <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第2课</span> 2026-05-21 · Flexbox + 数组 + 对象 + 箭头函数</div>
+    <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第3课</span> 2026-05-22 · CSS Grid + addEventListener</div>
+    <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第4课</span> 2026-05-23 · setInterval + 番茄钟项目</div>
+    <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第5课</span> 2026-05-24 · 函数参数 + 返回值 + localStorage</div>
+    <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第6课</span> 2026-05-24 · 数组进阶 forEach / filter / map</div>
+    <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第7课</span> 2026-05-25 · DOM 进阶 createElement / appendChild / splice</div>
+    <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第8课</span> 2026-05-25 · 表单 Form + 事件对象 event</div>
+    <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第9课</span> 2026-05-25 · CSS 过渡和动画</div>
+    <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第10课</span> 2026-05-25 · CSS 定位（position）</div>
+    <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第11课</span> 2026-05-25 · 响应式设计（media query）</div>
+    <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第12课</span> 2026-05-25 · ES6 语法进阶</div>
+</div>
+
+<!-- ==================== 第1次课 ==================== -->
+<div class="section">
+    <h2>📗 第1课：HTML + CSS 基础 <span class="tag tag-green">2026-05-20</span></h2>
+
+    <h3>📄 HTML 基础标签</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>&lt;h1&gt; ~ &lt;h6&gt;</code> 标题标签</div>
+    <div class="topic"><span class="check yes">✓</span> <code>&lt;p&gt;</code> 段落标签</div>
+    <div class="topic"><span class="check yes">✓</span> <code>&lt;ul&gt; / &lt;ol&gt;</code> 无序/有序列表</div>
+    <div class="topic"><span class="check yes">✓</span> <code>&lt;a href="..."&gt;</code> 链接标签</div>
+    <div class="topic"><span class="check yes">✓</span> <code>&lt;img src="..." alt="..."&gt;</code> 图片标签（自闭合）</div>
+    <div class="topic"><span class="check yes">✓</span> 标签的属性：class / id / href / src / alt</div>
+
+    <h3>🎨 CSS 基础</h3>
+    <div class="topic"><span class="check yes">✓</span> CSS 语法：<code>选择器 { 属性: 值; }</code></div>
+    <div class="topic"><span class="check yes">✓</span> 颜色：英文名 / rgb / 十六进制（如 <code>#3498db</code>）</div>
+    <div class="topic"><span class="check yes">✓</span> 文字样式：color / font-size / text-align / line-height</div>
+    <div class="topic"><span class="check yes">✓</span> 边框圆角：<code>border-radius</code></div>
+    <div class="topic"><span class="check yes">✓</span> 背景：<code>background-color</code></div>
+    <div class="topic"><span class="check yes">✓</span> 内外边距：<code>padding</code> / <code>margin</code></div>
+    <div class="topic"><span class="check yes">✓</span> 悬停效果：<code>:hover</code> 伪类</div>
+
+    <h3>⚡ JavaScript 入门</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>alert()</code> 弹窗</div>
+    <div class="topic"><span class="check yes">✓</span> 变量：<code>let 变量名 = 值</code></div>
+    <div class="topic"><span class="check yes">✓</span> 字符串拼接：<code>"你好" + name</code></div>
+    <div class="topic"><span class="check yes">✓</span> 函数：<code>function 函数名() { ... }</code></div>
+    <div class="topic"><span class="check yes">✓</span> 事件：<code>onclick="函数名()"</code></div>
+    <div class="topic"><span class="check yes">✓</span> if...else 条件判断</div>
+    <div class="topic"><span class="check yes">✓</span> DOM 操作：<code>document.getElementById("id")</code></div>
+    <div class="topic"><span class="check yes">✓</span> 修改内容：<code>.innerText = "..."</code></div>
+
+    <h3>🚨 第1课犯过的错误</h3>
+    <div class="mistake">
+        <strong>❌ 问题1：</strong><code>onclick="fn"</code> 漏了括号<br>
+        <strong>✅ 正确：</strong><code>onclick="fn()"</code> — 调用函数必须加 <code>()</code>
+    </div>
+    <div class="mistake">
+        <strong>❌ 问题2：</strong>HTML 里写 <code>onclick="show()"</code>，JS 里函数名叫 <code>function showMessage()</code>，名字不一致<br>
+        <strong>✅ 正确：</strong>HTML 和 JS 的函数名必须完全一样
+    </div>
+</div>
+
+<!-- ==================== 第2次课 ==================== -->
+<div class="section">
+    <h2>📗 第2课：Flexbox + 数组 + 对象 + 箭头函数 <span class="tag tag-green">2026-05-21</span></h2>
+
+    <h3>📐 Flexbox 布局</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>display: flex</code> 开启弹性布局</div>
+    <div class="topic"><span class="check yes">✓</span> <code>justify-content: center / space-around / space-between</code> 水平对齐</div>
+    <div class="topic"><span class="check yes">✓</span> <code>gap</code> 子元素间距</div>
+    <div class="topic"><span class="check yes">✓</span> <code>flex: 1</code> 等分剩余空间</div>
+    <div class="topic"><span class="check yes">✓</span> <code>flex-wrap: wrap</code> 换行</div>
+    <div class="topic"><span class="check yes">✓</span> 作业：导航栏（水平居中 + hover变色）</div>
+
+    <h3>📚 数组</h3>
+    <div class="topic"><span class="check yes">✓</span> 创建：<code>let arr = ["a", "b", "c"]</code></div>
+    <div class="topic"><span class="check yes">✓</span> 访问：<code>arr[0]</code>（下标从0开始）</div>
+    <div class="topic"><span class="check yes">✓</span> for 循环遍历：<code>for (let i = 0; i &lt; arr.length; i++)</code></div>
+    <div class="topic"><span class="check yes">✓</span> <code>.push()</code> 添加元素</div>
+    <div class="topic"><span class="check yes">✓</span> <code>.join("分隔符")</code> 拼接成字符串</div>
+
+    <h3>📦 对象</h3>
+    <div class="topic"><span class="check yes">✓</span> 创建：<code>let obj = { 键: 值, 键: 值 }</code></div>
+    <div class="topic"><span class="check yes">✓</span> 访问：<code>obj.属性名</code>（点号表示法）</div>
+    <div class="topic"><span class="check yes">✓</span> 数组里套对象：<code>[{ name: "..." }, { name: "..." }]</code></div>
+
+    <h3>🏹 箭头函数</h3>
+    <div class="topic"><span class="check yes">✓</span> 语法：<code>let 函数名 = () => { ... }</code></div>
+    <div class="topic"><span class="check yes">✓</span> 比 <code>function</code> 写法更简洁</div>
+
+    <h3>📌 综合项目：Todo List 待办清单</h3>
+    <div class="topic"><span class="check yes">✓</span> 数组 + 对象存储待办</div>
+    <div class="topic"><span class="check yes">✓</span> 用 for 循环遍历显示</div>
+    <div class="topic"><span class="check yes">✓</span> 用 if 判断待办是否完成</div>
+
+    <h3>🚨 第2课犯过的错误</h3>
+    <div class="mistake">
+        <strong>❌ 问题3：</strong>对对象调用了数组方法 <code>obj.join()</code><br>
+        <strong>✅ 正确：</strong><code>.join()</code> 只能用在数组上，对象要用 <code>obj.属性名</code>
+    </div>
+    <div class="mistake">
+        <strong>❌ 问题4：</strong>if...else 写在函数外面，不报错但也不执行<br>
+        <strong>✅ 正确：</strong>逻辑代码要放在 <code>function { ... }</code> 里面
+    </div>
+    <div class="mistake">
+        <strong>❌ 问题5：</strong>布尔值写成字符串 <code>if (done === "true")</code><br>
+        <strong>✅ 正确：</strong>布尔值直接写 <code>if (done)</code>，不要加引号
+    </div>
+</div>
+
+<!-- ==================== 第3次课 ==================== -->
+<div class="section">
+    <h2>📗 第3课：CSS Grid + addEventListener <span class="tag tag-green">2026-05-22</span></h2>
+
+    <h3>📐 Grid 网格布局</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>display: grid</code> 开启网格布局</div>
+    <div class="topic"><span class="check yes">✓</span> <code>grid-template-columns: 1fr 1fr</code> 分列</div>
+    <div class="topic"><span class="check yes">✓</span> <code>gap</code> 格子间距</div>
+    <div class="topic"><span class="check yes">✓</span> 作业：日常安排（2列网格）</div>
+
+    <h3>📡 addEventListener</h3>
+    <div class="topic"><span class="check yes">✓</span> 语法：<code>元素.addEventListener("事件", 函数)</code></div>
+    <div class="topic"><span class="check yes">✓</span> 事件类型：<code>"click"</code> / <code>"mouseover"</code> / <code>"mouseout"</code></div>
+    <div class="topic"><span class="check yes">✓</span> 和 <code>onclick</code> 的区别：写在JS里，可绑多个函数</div>
+
+    <h3>🔍 document.querySelector</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>document.querySelector(".类名")</code> 通过 class 找元素</div>
+
+    <h3>🚨 第3课犯过的错误</h3>
+    <div class="mistake">
+        <strong>❌ 问题6：</strong>用 <code>innerHTML</code> 显示纯文字，把标签也插进去了<br>
+        <strong>✅ 正确：</strong>显示纯文字用 <code>innerText</code>，需要解析 HTML 才用 <code>innerHTML</code>
+    </div>
+</div>
+
+<!-- ==================== 第4次课 ==================== -->
+<div class="section">
+    <h2>📗 第4课：setInterval + 番茄钟项目 <span class="tag tag-green">2026-05-23</span></h2>
+
+    <h3>⏱️ setInterval 定时器</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>setInterval(函数, 毫秒)</code> 每隔指定时间执行一次</div>
+    <div class="topic"><span class="check yes">✓</span> 返回值：定时器ID（用于停止）</div>
+    <div class="topic"><span class="check yes">✓</span> <code>clearInterval(ID)</code> 停止定时器</div>
+
+    <h3>🍅 综合项目：Pomodoro Timer（pomodoro.html）</h3>
+    <div class="topic"><span class="check yes">✓</span> 显示 25:00 倒计时大数字</div>
+    <div class="topic"><span class="check yes">✓</span> 开始：每1秒 <code>timeLeft--</code></div>
+    <div class="topic"><span class="check yes">✓</span> 暂停：<code>clearInterval</code> 停止</div>
+    <div class="topic"><span class="check yes">✓</span> 重置：恢复 <code>timeLeft = totalSeconds</code></div>
+    <div class="topic"><span class="check yes">✓</span> 时间到：提示"时间到！"</div>
+    <div class="topic"><span class="check ok">!</span> 关键控制：<code>timerId</code> 判断是否在运行，防止重复定时器</div>
+
+    <h3>🔢 时间格式化</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>Math.floor(秒数 / 60)</code> 取分钟</div>
+    <div class="topic"><span class="check yes">✓</span> <code>秒数 % 60</code> 取余数（秒）</div>
+    <div class="topic"><span class="check yes">✓</span> 三元运算符 <code>n &lt; 10 ? "0" + n : "" + n</code> 补零</div>
+
+    <h3>🚨 第4课犯过的错误</h3>
+    <div class="mistake">
+        <strong>❌ 问题7：</strong>多个定时器同时运行（每次点"开始"都新建一个定时器）<br>
+        <strong>✅ 解决：</strong>用 <code>timerId</code> 判断，<code>if (timerId !== null) return;</code> 防止重复
+    </div>
+</div>
+
+<!-- ==================== 第5次课 ==================== -->
+<div class="section">
+    <h2>📗 第5课：函数参数 + 返回值 + localStorage <span class="tag tag-green">2026-05-24</span></h2>
+
+    <h3>📩 函数参数</h3>
+    <div class="topic"><span class="check yes">✓</span> 参数 = 函数接收外部数据的"入口"</div>
+    <div class="topic"><span class="check yes">✓</span> 多个参数用逗号隔开：<code>function fn(a, b) { ... }</code></div>
+    <div class="topic"><span class="check yes">✓</span> 调用时传不同的值，函数行为不同</div>
+
+    <h3>📤 return 返回值</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>return 值</code> 把结果"还"给调用者</div>
+    <div class="topic"><span class="check yes">✓</span> 例：<code>function calcAge(birthYear) { return 2026 - birthYear; }</code></div>
+
+    <h3>💾 localStorage 本地存储</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>localStorage.setItem("key", "value")</code> 存数据</div>
+    <div class="topic"><span class="check yes">✓</span> <code>localStorage.getItem("key")</code> 取数据</div>
+    <div class="topic"><span class="check yes">✓</span> 只能存字符串 → <code>JSON.stringify()</code> 打包</div>
+    <div class="topic"><span class="check yes">✓</span> 取出后 → <code>JSON.parse()</code> 还原</div>
+    <div class="topic"><span class="check yes">✓</span> 让 Todo List 刷新后数据不丢失</div>
+</div>
+
+<!-- ==================== 第6次课 ==================== -->
+<div class="section">
+    <h2>📗 第6课：数组进阶 forEach / filter / map <span class="tag tag-green">2026-05-24</span></h2>
+
+    <h3>🔄 forEach — 遍历数组</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>arr.forEach(item => { })</code></div>
+    <div class="topic"><span class="check yes">✓</span> 也能拿下标：<code>arr.forEach((item, index) => { })</code></div>
+    <div class="topic"><span class="check yes">✓</span> 比 for 循环更简洁，不用写 i 和 length</div>
+    <div class="topic"><span class="check yes">✓</span> 不返回新数组，只是操作每个元素</div>
+
+    <h3>🔍 filter — 过滤数组</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>let 新数组 = arr.filter(item => 条件)</code></div>
+    <div class="topic"><span class="check yes">✓</span> 符合条件的保留，不符合的去掉</div>
+    <div class="topic"><span class="check yes">✓</span> 返回新数组，原数组不变</div>
+    <div class="topic"><span class="check yes">✓</span> 例：<code>todos.filter(todo => !todo.done)</code> 筛出未完成</div>
+
+    <h3>🔄 map — 转换数组</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>let 新数组 = arr.map(item => 新值)</code></div>
+    <div class="topic"><span class="check yes">✓</span> 每个元素"映射"成新值</div>
+    <div class="topic"><span class="check yes">✓</span> 返回新数组，长度不变</div>
+
+    <h3>📌 三个方法对比</h3>
+    <div class="topic"><span class="check ok">!</span> forEach：遍历用（不产生新数组）</div>
+    <div class="topic"><span class="check ok">!</span> filter：筛选用（长度可能变短）</div>
+    <div class="topic"><span class="check ok">!</span> map：转换用（长度不变）</div>
+    <div class="topic"><span class="check ok">!</span> 三个方法都不会改变原数组</div>
+
+    <h3>✏️ 练习</h3>
+    <div class="topic"><span class="check yes">✓</span> 练习1：用 forEach 改造 showHobbies</div>
+    <div class="topic"><span class="check yes">✓</span> 练习2：filter + forEach 显示未完成待办</div>
+    <div class="topic"><span class="check yes">✓</span> 练习3：用 map 改造 showSkills</div>
+</div>
+
+<!-- ==================== 第7次课 ==================== -->
+<div class="section">
+    <h2>📗 第7课：DOM 进阶 createElement / appendChild <span class="tag tag-green">2026-05-25</span></h2>
+
+    <h3>🏗️ createElement — 造标签</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>document.createElement("标签名")</code> — 在 JS 里创建元素</div>
+    <div class="topic"><span class="check yes">✓</span> 创建后可以设置 <code>.innerText</code>、<code>.className</code> 等</div>
+
+    <h3>📎 appendChild — 挂到页面</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>父元素.appendChild(子元素)</code> — 加到父元素末尾</div>
+    <div class="topic"><span class="check yes">✓</span> vs <code>innerHTML</code>：appendChild 更规范</div>
+
+    <h3>🗑️ splice — 删除数组元素</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>arr.splice(下标, 个数)</code> — 从指定位置删</div>
+    <div class="topic"><span class="check yes">✓</span> 配合 <code>forEach((item, index) => ...)</code> 删除指定项</div>
+
+    <h3>✏️ 练习</h3>
+    <div class="topic"><span class="check yes">✓</span> 练习1：用 createElement + appendChild 改造 showTodos</div>
+    <div class="topic"><span class="check yes">✓</span> 练习2：给每项待办加 ❌ 删除按钮</div>
+
+    <h3>🚨 第7课犯过的错误</h3>
+    <div class="mistake">
+        <strong>❌ 问题8：</strong>用 <code>innerHTML +=</code> 追加内容，导致已绑定的按钮事件丢失<br>
+        <strong>✅ 解决：</strong>改用 <code>createElement + appendChild</code>，不会重新渲染整个容器
+    </div>
+</div>
+
+<!-- ==================== 第8次课 ==================== -->
+<div class="section">
+    <h2>📗 第8课：表单 Form + 事件对象 event <span class="tag tag-green">2026-05-25</span></h2>
+
+    <h3>📝 表单（Form）</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>&lt;form&gt;</code> 标签：收集用户输入</div>
+    <div class="topic"><span class="check yes">✓</span> <code>&lt;input type="text"&gt;</code> 文本输入框</div>
+    <div class="topic"><span class="check yes">✓</span> <code>&lt;button type="submit"&gt;</code> 提交按钮</div>
+    <div class="topic"><span class="check yes">✓</span> <code>.value</code> 获取输入框内容</div>
+    <div class="topic"><span class="check yes">✓</span> <code>required</code> 属性：输入不能为空</div>
+
+    <h3>🎯 事件对象（event）</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>event.preventDefault()</code> 阻止默认行为（表单刷新）</div>
+    <div class="topic"><span class="check yes">✓</span> <code>event.target</code> 获取触发事件的元素</div>
+    <div class="topic"><span class="check yes">✓</span> <code>classList.contains("类名")</code> 判断元素有没某 class</div>
+    <div class="topic"><span class="check yes">✓</span> <code>.tagName</code> 获取元素的标签名（如 "BUTTON"）</div>
+
+    <h3>✏️ 练习</h3>
+    <div class="topic"><span class="check yes">✓</span> 练习1：留言板表单（提交 + preventDefault + 动态创建）</div>
+    <div class="topic"><span class="check yes">✓</span> 练习2：event.target 判断点击名字/内容/删除按钮</div>
+    <div class="topic"><span class="check yes">✓</span> 综合项目：my-hobby.html 留言板</div>
+
+    <h3>🚨 第8课犯过的错误</h3>
+    <div class="mistake">
+        <strong>❌ 问题9：</strong>变量名拼写错误 <code>masageBoard</code>（少写了 s）<br>
+        <strong>✅ 正确：</strong><code>messageBoard</code> — 变量名写错 JS 就找不到元素
+    </div>
+    <div class="mistake">
+        <strong>❌ 问题10：</strong>写了不存在的方法 <code>classList.container()</code><br>
+        <strong>✅ 正确：</strong>应该是 <code>classList.contains()</code>（"contain" = "包含"）
+    </div>
+    <div class="mistake">
+        <strong>❌ 问题11：</strong><code>if (alert(...))</code> — 把 alert 弹窗放在了 if 条件里<br>
+        <strong>✅ 正确：</strong><code>alert()</code> 的返回值是 undefined，不能做条件判断。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;应该先判断 <code>if (条件)</code>，再在花括号里 <code>alert()</code>
+    </div>
+    <div class="mistake">
+        <strong>❌ 问题12：</strong>判断 class 用错了元素（用 messageBoard 而不是 target）<br>
+        <strong>✅ 正确：</strong>点击事件里，<code>event.target</code> 才是用户实际点的元素
+    </div>
+    <div class="mistake">
+        <strong>❌ 问题13：</strong>变量名记不住，每次写代码都要回去看定义<br>
+        <strong>✅ 解决：</strong>变量旁边加 emoji 注释（👤 名字 💬 内容 📋 表单），看一眼就懂
+    </div>
+</div>
+
+<!-- ==================== 第9次课 ==================== -->
+<div class="section">
+    <h2>📗 第9课：CSS 过渡和动画 <span class="tag tag-green">2026-05-25</span></h2>
+
+    <h3>🎬 transition（过渡）</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>transition: all 0.3s</code> — 属性变化时平滑过渡</div>
+    <div class="topic"><span class="check yes">✓</span> 配合 <code>:hover</code> 使用，鼠标移入移出都有过渡效果</div>
+
+    <h3>🔄 transform（变换）</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>rotate(45deg)</code> — 旋转</div>
+    <div class="topic"><span class="check yes">✓</span> <code>scale(1.3)</code> — 放大缩小</div>
+    <div class="topic"><span class="check yes">✓</span> <code>translateX(30px)</code> — 左右移动</div>
+    <div class="topic"><span class="check yes">✓</span> <code>translateY(-20px)</code> — 上下移动</div>
+
+    <h3>🎞️ animation（动画）</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>@keyframes 动画名 { from{...} to{...} }</code> — 定义动画</div>
+    <div class="topic"><span class="check yes">✓</span> <code>animation: 名 时长 infinite</code> — 播放动画（无限循环）</div>
+    <div class="topic"><span class="check yes">✓</span> 也可以分多段：<code>0%{...} 50%{...} 100%{...}</code></div>
+
+    <h3>📌 实际效果</h3>
+    <div class="topic"><span class="check yes">✓</span> 卡片 hover 浮起（translateY + box-shadow）</div>
+    <div class="topic"><span class="check yes">✓</span> 卡片入场动画（fadeInUp）</div>
+    <div class="topic"><span class="check yes">✓</span> 标题颜色循环变换（colorShift）</div>
+    <div class="topic"><span class="check yes">✓</span> 四个演示盒子：旋转 / 放大 / 移动 / 跳动</div>
+
+    <h3>✏️ 练习</h3>
+    <div class="topic"><span class="check yes">✓</span> 练习1：修改动画参数（跳动速度 + 标题颜色）</div>
+    <div class="topic"><span class="check yes">✓</span> 练习2：自己创建一个新动画（旋转盒子）</div>
+
+    <h3>🚨 第9课犯过的错误</h3>
+    <div class="mistake">
+        <strong>❌ 问题14：</strong><code>@keyframes</code> 名字和 <code>animation</code> 引用的名字不一致<br>
+        <strong>✅ 正确：</strong><code>@keyframes color { ... }</code> → <code>animation: color 1s infinite</code>，名字必须完全一样
+    </div>
+    <div class="mistake">
+        <strong>❌ 问题15：</strong>CSS 角度单位写成了 <code>0°</code>（度数符号）<br>
+        <strong>✅ 正确：</strong>应该写 <code>0deg</code>（deg = degree 的缩写）
+    </div>
+</div>
+
+<!-- ==================== 第10次课 ==================== -->
+<div class="section">
+    <h2>📗 第10课：CSS 定位（position）<span class="tag tag-green">2026-05-25</span></h2>
+
+    <h3>📌 四种定位模式</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>position: relative</code> 相对定位：相对自己原来的位置偏移</div>
+    <div class="topic"><span class="check yes">✓</span> <code>position: absolute</code> 绝对定位：相对最近定位父元素"贴"过去</div>
+    <div class="topic"><span class="check yes">✓</span> <code>position: fixed</code> 固定定位：相对浏览器窗口固定，滚动不动</div>
+    <div class="topic"><span class="check yes">✓</span> <code>top / right / bottom / left</code> 方向属性指定位置</div>
+    <div class="topic"><span class="check yes">✓</span> <code>z-index</code> 层叠顺序：数字越大越在上面</div>
+
+    <h3>📌 关键理解</h3>
+    <div class="topic"><span class="check ok">!</span> relative：保留原来位置（占位），偏移不影响其他元素</div>
+    <div class="topic"><span class="check ok">!</span> absolute：脱离文档流（不占位），父元素要设 <code>position: relative</code></div>
+    <div class="topic"><span class="check ok">!</span> fixed：脱离文档流，相对于浏览器窗口定位</div>
+    <div class="topic"><span class="check ok">!</span> z-index 只对定位元素（非 static）生效</div>
+
+    <h3>✏️ 练习</h3>
+    <div class="topic"><span class="check yes">✓</span> 练习1：回到顶部按钮从右下角改到左下角（<code>right → left</code>）</div>
+    <div class="topic"><span class="check yes">✓</span> 练习2：交换 z-index 让红色盒在最上面</div>
+    <div class="topic"><span class="check yes">✓</span> 练习3：导航栏固定顶部 + 解决遮挡问题（<code>position: fixed + z-index + h1 margin-top</code>）</div>
+</div>
+
+<!-- ==================== 第11次课 ==================== -->
+<div class="section">
+    <h2>📗 第11课：响应式设计（media query）<span class="tag tag-green">2026-05-25</span></h2>
+
+    <h3>📱 核心语法</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>@media (max-width: 768px) { ... }</code> 屏幕 ≤ 768px 时生效</div>
+    <div class="topic"><span class="check yes">✓</span> <code>@media (min-width: 768px) and (max-width: 1024px) { ... }</code> 范围限定</div>
+    <div class="topic"><span class="check yes">✓</span> <code>max-width</code> = 小于等于 / <code>min-width</code> = 大于等于</div>
+
+    <h3>📐 响应式改造</h3>
+    <div class="topic"><span class="check yes">✓</span> 导航栏：电脑固定顶部，手机跟着滚动（<code>position: static</code>）</div>
+    <div class="topic"><span class="check yes">✓</span> 导航栏：手机上保持横排、缩小字体和 padding</div>
+    <div class="topic"><span class="check yes">✓</span> 卡片 / Grid 网格：多列 → 1列（<code>flex-direction: column</code> / <code>grid-template-columns: 1fr</code>）</div>
+    <div class="topic"><span class="check yes">✓</span> 表单：输入框占满宽度</div>
+    <div class="topic"><span class="check yes">✓</span> 图片：手机上放大（<code>width: 50%</code>）</div>
+    <div class="topic"><span class="check yes">✓</span> 字体：手机上缩小</div>
+
+    <h3>✏️ 练习</h3>
+    <div class="topic"><span class="check yes">✓</span> 练习1：修改断点（<code>768px → 600px</code>）</div>
+    <div class="topic"><span class="check yes">✓</span> 练习2：图片在手机上放大（<code>img { width: 50%; }</code>）</div>
+    <div class="topic"><span class="check yes">✓</span> 练习3：平板断点让 grid 变2列（<code>min-width + max-width</code>）</div>
+</div>
+
+<!-- ==================== 第12次课 ==================== -->
+<div class="section">
+    <h2>📗 第12课：ES6 语法进阶 <span class="tag tag-green">2026-05-25</span></h2>
+
+    <h3>🔤 模板字符串（Template Literals）</h3>
+    <div class="topic"><span class="check yes">✓</span> 用反引号 <code>``</code> 代替单双引号</div>
+    <div class="topic"><span class="check yes">✓</span> 变量用 <code>${变量名}</code> 嵌入，不用加号拼接</div>
+    <div class="topic"><span class="check yes">✓</span> 支持换行，不用 <code>\n</code></div>
+
+    <h3>📦 解构赋值（Destructuring）</h3>
+    <div class="topic"><span class="check yes">✓</span> 从对象一步取值：<code>let { name, age } = obj</code></div>
+    <div class="topic"><span class="check yes">✓</span> 变量名必须跟属性名一致</div>
+
+    <h3>🔀 展开运算符（Spread Operator）</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>...</code> 三个点展开对象或数组</div>
+    <div class="topic"><span class="check yes">✓</span> 合并对象：<code>{ ...obj1, ...obj2 }</code></div>
+    <div class="topic"><span class="check yes">✓</span> 合并数组：<code>[ ...arr1, ...arr2 ]</code></div>
+
+    <h3>✏️ 练习</h3>
+    <div class="topic"><span class="check yes">✓</span> 练习1：用模板字符串改造 <code>showMe</code> 函数</div>
+    <div class="topic"><span class="check yes">✓</span> 练习2：用解构赋值改造 <code>showFriend</code> 函数</div>
+    <div class="topic"><span class="check yes">✓</span> 练习3：用展开运算符合并两个对象</div>
+</div>
+
+<!-- ==================== 常犯错误大全 ==================== -->
+<div class="section">
+    <h2>📌 常犯错误大全（快速查阅）</h2>
+
+    <div class="mistake">
+        <strong>1️⃣ 函数调用忘记加 ()</strong><br>
+        <code>onclick="fn"</code> ❌ → <code>onclick="fn()"</code> ✅
+    </div>
+
+    <div class="mistake">
+        <strong>2️⃣ 函数名拼写不一致</strong><br>
+        HTML 里叫 <code>show()</code>，JS 里写 <code>showMessage()</code> ❌ → 名字必须一样 ✅
+    </div>
+
+    <div class="mistake">
+        <strong>3️⃣ 对象调用了数组方法</strong><br>
+        <code>obj.join()</code> ❌ → <code>.join()</code> 只能用在数组上 ✅
+    </div>
+
+    <div class="mistake">
+        <strong>4️⃣ if...else 写在函数外面</strong><br>
+        条件判断必须包在 <code>function { ... }</code> 里，否则不会按预期执行
+    </div>
+
+    <div class="mistake">
+        <strong>5️⃣ 布尔值写成字符串</strong><br>
+        <code>if (done === "true")</code> ❌ → <code>if (done)</code> ✅
+    </div>
+
+    <div class="mistake">
+        <strong>6️⃣ innerText vs innerHTML 混用</strong><br>
+        如果内容包含 HTML 标签（如 <code>&lt;p&gt;</code>），用 <code>innerHTML</code><br>
+        如果只是纯文字，用 <code>innerText</code>（更安全）
+    </div>
+
+    <div class="mistake">
+        <strong>7️⃣ 多个定时器同时跑</strong><br>
+        每次点"开始"都 <code>setInterval</code> ❌ → 先 <code>if (timerId !== null) return</code> ✅
+    </div>
+
+    <div class="mistake">
+        <strong>8️⃣ innerHTML += 导致事件丢失</strong><br>
+        <code>innerHTML += ...</code> 会重绘整个容器，已绑定的事件全丢了 ❌<br>
+        改用 <code>createElement + appendChild</code> ✅
+    </div>
+
+    <div class="mistake">
+        <strong>9️⃣ 变量名拼写错误</strong><br>
+        <code>masageBoard</code> ❌ → <code>messageBoard</code> ✅<br>
+        <code>classList.container()</code> ❌ → <code>classList.contains()</code> ✅
+    </div>
+
+    <div class="mistake">
+        <strong>🔟 alert 放在 if 条件里</strong><br>
+        <code>if (alert(...))</code> ❌ → <code>if (条件) { alert(...) }</code> ✅
+    </div>
+</div>
+
+<div class="footer">
+    学习记录更新于 2026年5月25日 · 共12次课
+</div>
+
+</div>
+</body>
+</html>

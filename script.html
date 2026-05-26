@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- 文档类型声明：HTML5 标准 -->
+<html lang="zh-CN">
+<!-- ↑ 页面语言设为简体中文 -->
+<head>
+    <meta charset="UTF-8">
+    <!-- ↑ 字符编码：UTF-8 可以显示中文 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 入门</title>
+    <!-- ↑ 标签页标题 -->
+</head>
+<body>
+    <!-- =================== 可见内容 =================== -->
+
+    <button onclick="sayHello()">你好</button>
+    <!-- ↑ button 按钮标签 -->
+    <!-- onclick="sayHello()" 表示点击按钮时，执行 JavaScript 的 sayHello 函数 -->
+    <!-- 按钮上显示的文字是 "你好" -->
+
+    <button onclick="study()">猜猜我在干什么</button>
+    <!-- ↑ 另一个按钮，点击后执行 study() 函数 -->
+
+    <!-- =================== JavaScript 代码 =================== -->
+    <script>
+        <!-- ↑ script 标签：里面写 JavaScript 代码 -->
+        // <!-- 如果使用 src="xxx.js" 则是引入外部 JS 文件 -->
+
+        // 定义一个名叫 sayHello 的函数
+        // function = 函数，是"一组动作的集合"
+        function sayHello(){
+            // alert() 是浏览器自带的弹窗函数
+            // 括号里的内容会显示在弹窗中
+            alert("你好！我叫川");
+        }
+
+        // 定义另一个函数叫 study
+        function study(){
+            alert("我正在学习 JavaScript");
+        }
+    </script>
+</body>
+</html>

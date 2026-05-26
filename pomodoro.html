@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>🍅 番茄钟</title>
+    <style>
+        /* ===== 全局重置 ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background: #fce4ec;          /* 粉色背景 */
+            min-height: 100vh;             /* 至少占满整个视口高度 */
+            display: flex;                 /* 用 Flexbox 居中 */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ===== 番茄钟容器 ===== */
+        .container {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        /* ===== 标题 ===== */
+        h1 {
+            color: #e74c3c;                /* 番茄红色 */
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        /* ===== 时间显示（大数字） ===== */
+        .timer {
+            font-size: 100px;              /* 超大字号 */
+            font-weight: bold;             /* 加粗 */
+            color: #2c3e50;
+            margin: 20px 0;
+            font-family: "Courier New", monospace;  /* 等宽字体，数字更整齐 */
+        }
+
+        /* ===== 按钮区域 ===== */
+        .controls {
+            display: flex;                 /* Flexbox 让按钮横排 */
+            gap: 16px;                     /* 按钮间距 */
+            justify-content: center;       /* 居中 */
+            margin: 20px 0;
+        }
+
+        /* ===== 按钮通用样式 ===== */
+        button {
+            padding: 12px 32px;
+            font-size: 18px;
+            border: none;                  /* 去掉默认边框 */
+            border-radius: 8px;            /* 圆角 */
+            cursor: pointer;               /* 鼠标变手型 */
+            font-weight: bold;
+            transition: transform 0.2s;    /* 点击动画 */
+        }
+
+        button:hover {
+            transform: scale(1.05);        /* 鼠标悬停时略微放大 */
+        }
+
+        button:active {
+            transform: scale(0.95);        /* 点击时略微缩小 */
+        }
+
+        /* ===== 各按钮颜色 ===== */
+        #start-btn {
+            background: #2ecc71;            /* 绿色：开始/继续 */
+            color: white;
+        }
+
+        #pause-btn {
+            background: #f39c12;            /* 橙色：暂停 */
+            color: white;
+        }
+
+        #reset-btn {
+            background: #95a5a6;            /* 灰色：重置 */
+            color: white;
+        }
+
+        /* ===== 状态文字 ===== */
+        #status {
+            color: #888;
+            font-size: 16px;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 标题 -->
+        <h1>🍅 番茄钟</h1>
+
+        <!-- 时间显示：初始 25:00 -->
+        <div class="timer" id="timer">25:00</div>
+
+        <!-- 按钮区域 -->
+        <div class="controls">
+            <button id="start-btn">▶ 开始</button>
+            <button id="pause-btn">⏸ 暂停</button>
+            <button id="reset-btn">↺ 重置</button>
+        </div>
+
+        <!-- 状态提示 -->
+        <p id="status">点击"开始"开始专注 💪</p>
+    </div>
+
+    <script>
+        // ===================================
+        // JS 部分
+        // ===================================
+
+        // 先获取需要用到的元素
+        let timerDisplay = document.getElementById("timer");   // 显示时间的元素
+        let statusText = document.getElementById("status");     // 显示状态的元素
+
+        // 定义常量：25分钟 = 1500秒
+        let totalSeconds = 1500;          // 总时间（秒）
+        let timeLeft = totalSeconds;      // 剩余时间（初始 = 总时间）
+        let timerId = null;               // 存放定时器的ID，初始为空
+
+        // ===== 辅助函数：把秒数转成 "分:秒" 格式 =====
+        function formatTime(seconds) {
+            let min = Math.floor(seconds / 60);    // 取整：分钟数
+            let sec = seconds % 60;                // 取余：秒数
+            // 如果分钟或秒数小于10，前面补0（比如 5 → "05"）
+            let minStr = min < 10 ? "0" + min : "" + min;
+            let secStr = sec < 10 ? "0" + sec : "" + sec;
+            return minStr + ":" + secStr;
+        }
+
+        // ===== 更新页面显示 =====
+        function updateDisplay() {
+            timerDisplay.innerText = formatTime(timeLeft);
+        }
+
+        // ========== 练习2：写在这里 ↓ ==========
+
+    document.getElementById("start-btn").addEventListener("click", () => {
+    if (timerId !== null)return;
+    statusText.innerText = "正在专注中...";
+
+    timerId = setInterval(() => {
+        timeLeft--;
+        updateDisplay();
+        if (timeLeft <= 0) {
+            clearInterval(timerId);
+            timerId = null;
+            statusText.innerText = "时间到！";
+        }
+    }, 1000);
+
+});
+    
+        // ========== 练习3：写在这里 ↓ ==========
+
+    document.getElementById("pause-btn").addEventListener("click", () => {
+    if (timerId === null)return;
+    clearInterval(timerId);
+    timerId = null;
+    statusText.innerText = "已暂停";
+});
+        // ========== 练习4：写在这里 ↓ ==========
+    document.getElementById("reset-btn").addEventListener("click", () => {
+    clearInterval(timerId);
+    timerId = null;
+    timeLeft = totalSeconds;
+    updateDisplay();
+    statusText.innerText = "点击“开始”开始专注 💪";
+});
+    </script>
+</body>
+</html>

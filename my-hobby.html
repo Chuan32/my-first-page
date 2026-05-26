@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!-- 文档类型：HTML5 -->
+<html lang="zh-CN">
+<!-- ↑ 页面语言：简体中文 -->
+<head>
+    <meta charset="UTF-8">
+    <!-- ↑ 字符编码，支持中文 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ↑ 手机适配设置 -->
+    <title>我的个人介绍</title>
+    <!-- ↑ 浏览器标签页上的标题 -->
+
+    <!-- 引入外部 CSS 样式文件 -->
+    <!-- link 是"连接"标签，rel="stylesheet" 表示这是一个样式表 -->
+    <!-- href="my-hobby.css" 指向同目录下的 CSS 文件 -->
+    <link rel="stylesheet" href="my-hobby.css">
+    <link rel="icon" href="data:,">
+</head>
+<body>
+    <!-- ===================== 标题区 ===================== -->
+
+    <!-- h1 一级标题，id="title" 给这个标签起个名字，方便 JS 找到它 -->
+    <h1 id="title">欢迎来到我的主页</h1>
+
+    <!-- ===================== 水平导航栏 ===================== -->
+
+    <div class="nav-bar">
+        <a href="#" class="nav-item">首页</a>
+        <a href="#" class="nav-item">我的爱好</a>
+        <a href="#" class="nav-item">我的技能</a>
+        <a href="#" class="nav-item">关于我</a>
+    </div>
+
+    <!-- ===================== 按钮区 ===================== -->
+    <!-- 每一个按钮都绑定了点击事件 onclick -->
+    <!-- 点击后执行对应的 JavaScript 函数（函数定义在 my-hobby.js 中） -->
+
+    <button onclick="greet()">打招呼</button>
+    <!-- 点击后弹出问候语 -->
+
+    <button onclick="toggleDark()">切换深色模式</button>
+    <!-- 点击后切换深色/浅色背景 -->
+
+    <button onclick="countClicks()">点我计数</button>
+    <!-- 每点一次计数 +1 -->
+
+    <button onclick="changeTitle()">修改标题</button>
+    <!-- 修改 h1 标题的文字 -->
+
+    <button onclick="showMessage()">显示消息</button>
+    <button onclick="changeState()">修改状态</button>
+    <button onclick="showHobbies()">显示爱好列表 (数组)</button>
+    <!-- ↑ 展示数组中的爱好 -->
+    <button onclick="showGoals()">显示学习顺序</button>
+    <button onclick="showFriend()">显示朋友的信息</button>
+    <button onclick="showMe()">显示个人信息 (对象)</button>
+    <!-- ↑ 展示对象中的个人信息 -->
+     <button onclick="showBook()">显示书籍信息</button>
+     <button onclick="showSkills()">显示学习进度的跟进</button>
+    <button onclick="addHobby()">添加爱好 (箭头函数)</button>
+    <!-- ↑ 用 prompt 输入新爱好，添加到数组 -->
+     <button onclick="addGoals()">添加学习目标</button>
+    <button onclick="greetUser('川')">练习1：用参数打招呼（川）</button>
+    <button onclick="greetUser('小明')">练习1：用参数打招呼（小明）</button>
+    <button onclick="showMessage('你好啊，参数真好用！')">练习2：传参显示消息</button>
+    <button onclick="showMessage('我又传了另一句话')">练习2：传另一句话</button>
+    <button onclick="document.getElementById('display').innerText = '出生2006年，年龄：' + calcAge(2006)">练习3：计算年龄</button>
+    <button onclick="showUserInfo()">展开运算符：合并信息</button>
+
+    <!-- ===================== addEventListener 演示 ===================== -->
+    <!-- 注意！这个按钮没有 onclick，用 JS 绑定事件 -->
+    <button id="event-btn">点我（addEventListener）</button>
+    <button id="event-btn2">再点我（第二个监听器）</button>
+    <p id="event-display"></p>
+
+    <!-- ===================== mouseover / mouseout 演示 ===================== -->
+    <div id="hover-box" class="hover-box">
+        鼠标移到我上面试试
+    </div>
+    <p id="hover-display"></p>
+
+    <!-- ===================== 文字显示区 ===================== -->
+    <!-- 这些 p 标签初始是空的，JS 会往里填内容 -->
+    <!-- id 是 JS 找到它们的"门牌号" -->
+    <p id="message"></p>
+    <!-- ↑ 用来显示消息 -->
+    <p id="state"></p>
+    <!-- ↑ 用来显示状态 -->
+    <p id="display"></p>
+    <!-- ↑ 用来显示爱好列表 -->
+    <p id="object-demo"></p>
+    <!-- ↑ 用来显示个人信息 -->
+    <p>我是一个HTML前端的学习者，正在学习</p>
+    <!-- ↑ 普通的段落文字 -->
+
+    <!-- ===================== 我的爱好 ===================== -->
+    <h2>我的爱好</h2>
+    <!-- h2 二级标题 -->
+
+    <!-- ul = unordered list（无序列表） -->
+    <!-- class="hobby-list" 用 CSS 的 Flexbox 让列表横向排列 -->
+    <ul class="hobby-list">
+        <li>打游戏</li>   <!-- li = list item（列表项） -->
+        <li>打羽毛球</li>
+        <li>跑步</li>
+    </ul>
+
+    <!-- ===================== Flexbox 卡片练习 ===================== -->
+    <h2>我的卡片（Flexbox 练习）</h2>
+
+    <!-- div 是"容器"标签，用来把其他标签包在一起 -->
+    <!-- class="card-container" 用 Flexbox 让三张卡片并排 -->
+    <div class="card-container">
+        <!-- 下面三张卡片结构一样，class 相同，样式统一 -->
+
+        <div class="card">
+            <h3>HTML</h3>
+            <!-- ↑ h3 三级标题 -->
+            <p>页面结构</p>
+            <!-- ↑ 卡片内的描述文字 -->
+        </div>
+
+        <div class="card">
+            <h3>CSS</h3>
+            <p>页面样式</p>
+        </div>
+
+        <div class="card">
+            <h3>JavaScript</h3>
+            <p>页面交互</p>
+        </div>
+        <div class="card">
+            <h3>Node.js</h3>
+            <p>后端运行</p>
+        </div>
+    </div>
+
+    <!-- ===================== Grid 布局练习 ===================== -->
+    <h2>我的学习路线图（Grid 练习）</h2>
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <h3>HTML</h3>
+            <p>✅ 已完成</p>
+        </div>
+        <div class="grid-item">
+            <h3>CSS</h3>
+            <p>✅ 已完成</p>
+        </div>
+        <div class="grid-item">
+            <h3>JavaScript</h3>
+            <p>✅ 已完成</p>
+        </div>
+        <div class="grid-item">
+            <h3>Flexbox</h3>
+            <p>✅ 已完成</p>
+        </div>
+        <div class="grid-item">
+            <h3>Grid</h3>
+            <p>📖 正在学</p>
+        </div>
+        <div class="grid-item">
+            <h3>Node.js</h3>
+            <p>⬜ 未开始</p>
+        </div>
+    </div>
+
+    <!-- ===================== 我的日常安排 ===================== -->
+
+    <h2>我的日常安排</h2>
+    <div class="schedule-grid">
+        <div class="schedule-item">
+        <h3>上午</h3>
+        <p>学习前端</p>
+        </div>
+        <div class="schedule-item">
+        <h3>中午</h3>
+        <p>休息</p>
+        </div>
+        <div class="schedule-item">
+        <h3>下午</h3>
+        <p>练习代码</p>
+        </div>
+        <div class="schedule-item">
+        <h3>晚上</h3>
+        <p>打游戏</p>
+        </div>
+    </div>
+
+    <!-- ===================== 学习顺序 ===================== -->
+    <h2>我现在的学习顺序</h2>
+
+    <!-- ol = ordered list（有序列表），会自动标上 1. 2. 3. -->
+    <ol>
+        <li>学习HTML</li>
+        <li>掌握HTML</li>
+        <li>学习css</li>
+        <li>掌握css</li>
+        <li>学习js</li>
+        <li>掌握js</li>
+    </ol>
+
+    <!-- ===================== 待办清单 ===================== -->
+
+    <h2>我的待办清单</h2>
+    <div id="todo-list"></div>
+
+    <button onclick="showTodos()"> 显示所有待办</button>
+    <button onclick="addTodos()"> 新增待办</button>
+    <button onclick="showUndoneTodos()">练习2：显示未完成待办</button>
+
+    <!-- ===================== 链接 ===================== -->
+    <h2>常用网站</h2>
+
+    <!-- a 是"锚点"标签，href="网址" 设置点击后跳转的地址 -->
+    <p>去<a href="https://www.baidu.com">百度</a>一下</p>
+    <!-- ↑ 点击"百度"这两个字，会打开百度首页 -->
+
+    <!-- ===================== 图片 ===================== -->
+    <h2>我的头像</h2>
+
+    <!-- img 是图片标签，src 指定图片路径，alt 是图片加载失败时显示的文字 -->
+    <!-- 注意：img 是自闭合标签，不需要 </img> -->
+    <img src="img/头像.jpg" alt="我的个人头像">
+
+    <!-- ===================== 动画演示 ===================== -->
+
+    <h2>🎬 CSS 动画演示</h2>
+
+    <!-- 四个盒子的动画演示区域 -->
+    <div class="animation-demo">
+        <div class="box box-rotate">旋转</div>
+        <div class="box box-scale">放大</div>
+        <div class="box box-move">移动</div>
+        <div class="box box-bounce">跳动</div>
+        <div class="box box-color">练习动画</div>
+    </div>
+
+    <!-- ===================== 第10课：CSS 定位演示 ===================== -->
+
+    <h2>📌 CSS 定位演示</h2>
+
+    <!-- 相对定位演示 -->
+    <h3>1. relative（相对定位）</h3>
+    <div class="position-demo">
+        <div class="pos-box box-red">原始位置</div>
+        <div class="pos-box box-green pos-relative">偏移了（relative）</div>
+        <div class="pos-box box-blue">我保持不变</div>
+    </div>
+    <p class="hint">绿色盒子用了 position: relative; left: 30px; top: 20px;<br>
+    它相对自己原来的位置向右30px、向下20px，但原来的位置还占着</p>
+
+    <!-- 绝对定位演示 -->
+    <h3>2. absolute（绝对定位）</h3>
+    <div class="pos-absolute-container">
+        <div class="pos-box box-red">普通盒子</div>
+        <div class="pos-box box-green pos-absolute-demo">absolute</div>
+        <div class="pos-box box-blue">普通盒子</div>
+        <p class="hint">绿色盒子用了 position: absolute; right: 10px; bottom: 10px;<br>
+        它贴着灰色容器（父元素）的右下角</p>
+    </div>
+
+    <!-- 固定定位：回到顶部按钮 -->
+    <h3>3. fixed（固定定位）</h3>
+    <div id="back-to-top">⬆ 顶部</div>
+    <p class="hint">⬆ 右上角的按钮用了 position: fixed，滚动页面它也固定在原地</p>
+
+    <!-- z-index 演示 -->
+    <h3>4. z-index（层叠顺序）</h3>
+    <div class="zindex-demo">
+        <div class="z-box z-box-1">z-index: 1</div>
+        <div class="z-box z-box-2">z-index: 2</div>
+        <div class="z-box z-box-3">z-index: 3</div>
+    </div>
+    <p class="hint">三个盒子重叠，z-index 越大的越在上面（数值=3在最上面）</p>
+
+    <!-- ===================== 留言板 ===================== -->
+
+    <h2>📝 留言板</h2>
+
+    <!-- form 是"表单"标签，用来收集用户输入 -->
+    <form id="message-form">
+        <!-- input 是"输入框"，type="text" 表示文本输入 -->
+        <!-- placeholder 是输入框里的提示文字 -->
+        <input type="text" id="name-input" placeholder="你的名字" required>
+
+        <!-- 留言输入框 -->
+        <input type="text" id="msg-input" placeholder="写点什么..." required>
+
+        <!-- type="submit" 表示这是"提交按钮"，点击后会触发表单的 submit 事件 -->
+        <button type="submit">发布留言</button>
+    </form>
+
+    <!-- 用来显示所有留言 -->
+    <div id="message-board"></div>
+
+    <!-- ===================== 引入 JS ===================== -->
+    <!-- script 标签用来引入外部 JS 文件 -->
+    <!-- src="my-hobby.js" 指向同目录下的 JS 文件 -->
+    <!-- 一般放在 body 末尾，这样 HTML 加载完后再执行 JS -->
+    <script src="my-hobby.js"></script>
+</body>
+</html>

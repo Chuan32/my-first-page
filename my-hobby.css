@@ -1,0 +1,641 @@
+/*
+  ==========================================
+  文件名：my-hobby.css
+  作用：给 my-hobby.html 添加样式（美化页面）
+  语法：选择器 { 属性名: 属性值; }
+  ==========================================
+*/
+
+/* ---------- h1 标题样式 ---------- */
+h1 {
+    color: rgb(30, 146, 218);        /* 文字颜色：蓝色（RGB 表示法） */
+    text-align: center;               /* 文字居中 */
+    margin-top: 60px;
+}
+
+/* ---------- h2 标题样式 ---------- */
+h2 {
+    color: rgb(72, 72, 72);           /* 深灰色文字 */
+    border-bottom: 2px solid rgb(30, 146, 218);  /* 底部加一条 2px 的蓝色边框，做下划线效果 */
+    padding-bottom: 5px;              /* 下内边距，让文字和边框之间有点距离 */
+}
+
+/* ---------- 段落文字 ---------- */
+p {
+    font-size: 18px;                  /* 字体大小 18 像素 */
+    line-height: 1.6;                 /* 行高：1.6 倍字体大小，让文字呼吸感 */
+    color: rgb(93, 93, 93);           /* 灰色文字 */
+}
+
+/* ---------- 列表（ul 和 ol） ---------- */
+ul, ol {
+    background-color: rgb(202, 202, 202);  /* 浅灰色背景 */
+    padding: 15px 30px;                    /* 上下内边距 15px，左右 30px */
+    border-radius: 10px;                   /* 圆角 10px */
+}
+
+/*
+  提示：border-radius 设置圆角
+  值越大，角越圆
+  设置 50% 会变成圆形
+*/
+
+/* ===================================
+   Flexbox 练习部分
+   =================================== */
+
+/*
+  .hobby-list 是 class 选择器
+  选中所有 class="hobby-list" 的元素
+*/
+
+.hobby-list {
+    display: flex;               /* 开启 Flexbox 弹性布局 */
+    justify-content: space-around;  /* 子元素沿水平方向均匀分布，左右留空 */
+    list-style: none;            /* 去掉列表项前面的小黑点（圆点符号） */
+    padding: 15px;               /* 内边距 */
+    gap: 12px;                   /* 子元素之间的间距 */
+}
+
+/*
+  .hobby-list li 选中 .hobby-list 里面的所有 li 标签
+  注意中间有空格，表示"后代选择器"
+*/
+.hobby-list li {
+    background: #3498db;         /* 背景色：蓝色（十六进制表示法） */
+    color: white;                /* 文字颜色：白色 */
+    padding: 12px 24px;          /* 上下 12px，左右 24px */
+    border-radius: 8px;          /* 圆角 */
+    font-size: 16px;             /* 字体大小 */
+}
+
+/* ---------- 卡片容器（Flexbox 三栏布局） ---------- */
+.card-container {
+    display: flex;               /* 开启 Flexbox */
+    flex-wrap: wrap;
+    gap: 16px;                   /* 卡片之间的间距 */
+    margin: 16px 0;              /* 上下外边距 16px，左右 0 */
+}
+
+/* ---------- 单张卡片 ---------- */
+.card {
+    background: #fff;            /* 白色背景 */
+    border: 1px solid #ddd;      /* 1px 实线边框，浅灰色 */
+    border-radius: 10px;         /* 圆角 */
+    padding: 16px;               /* 内边距 */
+    flex: 1;                     /* 重点！flex: 1 表示所有卡片等分剩余宽度 */
+    text-align: center;          /* 文字居中 */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);  /* 阴影：水平0 垂直2px 模糊6px 半透明黑色 */
+}
+
+/*
+  box-shadow 参数解释：
+  第1个值：水平偏移（正=向右）
+  第2个值：垂直偏移（正=向下）
+  第3个值：模糊半径（越大越模糊）
+  第4个值：颜色（rgba 中的 a 是透明度，0.08 表示 8% 不透明）
+*/
+
+/* 卡片内的 h3 标题 */
+.card h3 {
+    color: #2c3e50;              /* 深蓝色文字 */
+    margin-bottom: 8px;          /* 下外边距，与下面的文字拉开距离 */
+}
+
+/* ---------- 链接样式 ---------- */
+a {
+    text-decoration: none;       /* 去掉链接默认的下划线 */
+}
+
+/* 鼠标悬停在链接上时 */
+a:hover {
+    text-decoration: underline;  /* 加上下划线，提示用户可以点击 */
+}
+
+/*
+  :hover 是"伪类"，表示鼠标悬停时的状态
+  这是 CSS 中很常用的交互效果
+*/
+
+/* ---------- 图片样式 ---------- */
+img {
+    display: block;              /* 让图片变成块级元素，独占一行 */
+    margin: 0 auto;              /* 上下外边距0，左右自动（实现水平居中） */
+    width: 10%;                  /* 宽度设为父元素宽度的 10%（相对单位） */
+    /* border-radius: 50%; */    /* 被注释掉了：如果启用，图片会变成圆形 */
+    border-radius: 10px;         /* 图片圆角 10px */
+}
+
+/*
+  width: 10% 的意思是宽度占父元素的 10%
+  百分比是"相对单位"，相对于父元素的宽度
+  而 px 是"绝对单位"，固定大小
+*/
+.nav-bar {
+    display: flex;               /* 弹性布局，子元素横排 */
+    justify-content: center;     /* 水平居中（作业要求） */
+    gap: 40px;                   /* 菜单项间距 */
+    background-color: #969696;   /* 灰色背景 */
+    border-radius: 8px;          /* 圆角 */
+    padding: 12px 20px;          /* 上下12px 左右20px，让背景透气 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.nav-item {
+    color: #ffffff;              /* 白色文字（写在 a 标签上才生效） */
+    font-size: 20px;
+    padding: 8px 16px;           /* 让点击区域大一点 */
+    border-radius: 4px;
+}
+.nav-item:hover {
+    background-color: #008fd6;   /* 悬停时背景变蓝 */
+    color: #ffffff;              /* 文字保持白色 */
+}
+
+/* ===================================
+   Grid 布局练习
+   =================================== */
+
+.grid-container {
+    display: grid;                              /* 开启 Grid 网格布局 */
+    grid-template-columns: 1fr 1fr 1fr;         /* 分成 3 列，每列等宽 */
+    gap: 16px;                                  /* 格子间距 */
+    margin: 16px 0;
+}
+
+.grid-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.grid-item h3 {
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.grid-item p {
+    font-size: 14px;
+}
+
+.schedule-grid {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 16px 0;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.schedule-item h3{ 
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.schedule-item { 
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    gap: 16px;
+}
+
+.schedule-item p {
+    font-size: 14px;
+}
+
+/* ---------- 鼠标移入/移出演示盒子 ---------- */
+.hover-box {
+    width: 200px;
+    height: 100px;
+    background: #3498db;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 16px 0;
+    transition: background 0.3s;  /* 背景色变化时有个0.3秒的平滑过渡效果 */
+}
+
+/* ===================================
+   第10课内容：CSS 定位（position）
+   =================================== */
+
+/* ----- 定位演示的公共样式 ----- */
+.position-demo {
+    display: flex;
+    gap: 16px;
+    margin: 16px 0;
+    padding: 16px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    min-height: 100px;
+}
+
+.pos-box {
+    width: 120px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.box-red   { background: #e74c3c; }
+.box-green { background: #27ae60; }
+.box-blue  { background: #3498db; }
+
+/* relative：相对自己原来的位置移动 */
+.pos-relative {
+    position: relative;    /* 开启相对定位 */
+    left: 30px;           /* 向左偏移 30px */
+    top: 20px;            /* 向下偏移 20px */
+}
+
+/* ----- 绝对定位容器 ----- */
+.pos-absolute-container {
+    position: relative;           /* 重点！父元素设 relative，子元素的 absolute 就会以它为基准 */
+    background: #f5f5f5;
+    padding: 16px;
+    border-radius: 10px;
+    min-height: 120px;
+    margin: 16px 0;
+    display: flex;
+    gap: 16px;
+}
+
+.pos-absolute-demo {
+    position: absolute;   /* 开启绝对定位 — 完全脱离文档流 */
+    right: 10px;          /* 距离父元素右边 10px */
+    bottom: 10px;         /* 距离父元素底部 10px */
+    width: 100px;         /* 重新指定宽度 */
+    height: 60px;         /* 重新指定高度 */
+}
+
+/* ----- 固定定位：回到顶部按钮 ----- */
+#back-to-top {
+    position: fixed;              /* 固定定位：相对于浏览器窗口 */
+    left: 20px;                  /* 距离右边 20px */
+    bottom: 60px;                 /* 距离底部 60px */
+    background: #2c3e50;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 999;                /* 确保按钮在最上面 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+}
+
+#back-to-top:hover {
+    background: #3498db;
+    transform: scale(1.1);
+}
+
+/* ----- z-index 演示 ----- */
+.zindex-demo {
+    position: relative;           /* 父元素定位，让子元素以它为基准 */
+    height: 160px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    margin: 16px 0;
+}
+
+.z-box {
+    position: absolute;           /* 三个盒子都绝对定位，才能叠在一起 */
+    width: 120px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+}
+
+.z-box-1 {
+    background: #e74c3c;
+    top: 20px;
+    left: 20px;
+    z-index: 3;                   /* z-index 越小越靠下 */
+}
+
+.z-box-2 {
+    background: #27ae60;
+    top: 40px;
+    left: 40px;
+    z-index: 2;                   /* 在红色上面 */
+}
+
+.z-box-3 {
+    background: #3498db;
+    top: 60px;
+    left: 60px;
+    z-index: 1;                   /* 最大，在最上面 */
+}
+
+/* 提示文字 */
+.hint {
+    font-size: 14px;
+    color: #888;
+    margin: 8px 0 20px;
+    line-height: 1.6;
+}
+
+/* ===================================
+   留言板样式（第8次课）
+   =================================== */
+
+/* 表单容器：用 Flexbox 让输入框和按钮横排 */
+#message-form {
+    display: flex;
+    gap: 10px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+}
+
+/* 输入框通用样式 */
+#message-form input {
+    padding: 10px 14px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    flex: 1;
+    min-width: 150px;
+}
+
+/* 输入框获得焦点时（点击后）变蓝色边框 */
+#message-form input:focus {
+    border-color: #3498db;
+}
+
+/* 提交按钮 */
+#message-form button {
+    padding: 10px 24px;
+    font-size: 16px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#message-form button:hover {
+    background: #2980b9;
+}
+
+/* 留言板区域 */
+#message-board {
+    margin: 16px 0;
+    padding: 16px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    min-height: 60px;
+}
+
+/* 单条留言 */
+.message-item {
+    padding: 10px 14px;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+/* 留言里的名字 */
+.message-item .name {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* 留言里的内容 */
+.message-item .text {
+    color: #555;
+    margin-left: 8px;
+}
+
+/* ===================================
+   第9课内容：CSS 过渡和动画
+   =================================== */
+
+/* ----- transition 演示 ----- */
+
+/* 给所有按钮加个平滑过渡效果 */
+button {
+    transition: all 0.3s;
+}
+
+/* 卡片 hover 升级：鼠标放上去会稍微放大 + 阴影加深 */
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ----- animation 自动动画 ----- */
+
+/* 定义动画：从底部弹入 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 给卡片容器加入场动画 */
+.card-container {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* 定义动画：渐变色闪烁 */
+@keyframes colorShift {
+    0%   { color: #2c3e50; }
+    50%  { color: #2e80ea; }
+    100% { color: #2c3e50; }
+}
+
+/* 给 h1 标题加渐变动画（2秒循环一次） */
+h1 {
+    animation: colorShift 2s infinite;
+}
+
+/* ----- 动画演示盒子（给练习用） ----- */
+.animation-demo {
+    display: flex;
+    gap: 16px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+}
+
+.animation-demo .box {
+    width: 100px;
+    height: 100px;
+    background: #3498db;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 盒子1：hover 时旋转 */
+.box-rotate:hover {
+    transform: rotate(45deg);
+}
+
+/* 盒子2：hover 时放大 */
+.box-scale:hover {
+    transform: scale(1.3);
+}
+
+/* 盒子3：hover 时左右移动 */
+.box-move:hover {
+    transform: translateX(30px);
+}
+
+/* 盒子4：自动跳动的动画 */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-20px); }
+}
+
+.box-bounce {
+    animation: bounce 0.3s infinite;
+}
+
+/* 盒子5：自动旋转的动画 */
+@keyframes color {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.box-color {
+    animation: color 1s infinite;
+}
+
+/* ===================================
+   第11课内容：响应式设计（媒体查询）
+   =================================== */
+
+/*
+   @media (max-width: 768px) 的意思是：
+   当屏幕宽度 小于等于 768px 时（手机/小平板），
+   套用下面花括号里的样式
+*/
+
+@media (max-width: 600px) {
+
+    img {
+        width: 50%;
+    }
+
+    /* ----- 导航栏：横排变竖排 ----- */
+    .nav-bar {
+        flex-direction: row;     /* 保持横排 */
+        justify-content: space-around;/* 均匀分布 */
+        align-items: center;        /* 居中 */
+        gap: 4px;                   /* 间距缩小 */
+        padding: 8px 4px;
+    }
+    .nav-item {
+        font-size: 14px;
+        padding: 6px 8px;
+    }
+
+    /* ----- 卡片容器：多列变1列 ----- */
+    .card-container {
+        flex-direction: column;     /* 卡片竖排 */
+    }
+
+    /* ----- Grid 学习路线：3列变1列 ----- */
+    .grid-container {
+        grid-template-columns: 1fr; /* 变成1列 */
+    }
+
+    /* ----- 日常安排：2列变1列 ----- */
+    .schedule-grid {
+        grid-template-columns: 1fr; /* 变成1列 */
+    }
+    /* ----- 爱好列表：横排变竖排 ----- */
+    .hobby-list {
+        flex-direction: column;     /* 竖排 */
+        align-items: center;        /* 居中 */
+    }
+
+    /* ----- 动画演示盒子：横排换行变竖排 ----- */
+    .animation-demo {
+        justify-content: center;    /* 居中 */
+    }
+
+    /* ----- 留言板表单：输入框占满宽度 ----- */
+    #message-form {
+        flex-direction: column;     /* 竖排 */
+    }
+
+    #message-form input {
+        min-width: 100%;            /* 输入框占满 */
+    }
+
+    /* ----- 定位演示盒子：竖排 ----- */
+    .position-demo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* ----- 整体文字调小一点 ----- */
+    h1 { font-size: 24px; }
+    h2 { font-size: 18px; }
+    p  { font-size: 16px; }
+
+    /* ----- 回到顶部按钮在手机上小一点 ----- */
+    #back-to-top {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+@media (max-width: 768px) { 
+    .nav-bar {
+        position: static;
+    }
+}
+@media (min-width: 600px) and (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/*
+   补充：也可以针对平板（768px ~ 1024px）单独设置
+   @media (min-width: 768px) and (max-width: 1024px) {
+        ...平板专用样式...
+   }
+   但先掌握 max-width 就够了
+*/
+
