@@ -40,8 +40,50 @@
   - Math.floor() 和 % 取余转换时间格式
   - 练习：自己写了开始、暂停、重置三个功能的 JS 代码
 
+### 第5次课（2026-05-24）✅ 已完成
+- 函数参数 + 返回值 + localStorage
+
+### 第6次课（2026-05-24）✅ 已完成
+- 数组进阶：forEach / filter / map
+
+### 第7次课（2026-05-25）✅ 已完成
+- DOM 进阶：createElement / appendChild / splice
+
+### 第8次课（2026-05-25）✅ 已完成
+- 表单 Form + 事件对象 event
+
+### 第9次课（2026-05-25）✅ 已完成
+- CSS 过渡和动画：transition / transform / animation
+
+### 第10次课（2026-05-25）✅ 已完成
+- CSS 定位：relative / absolute / fixed / z-index
+
+### 第11次课（2026-05-25）✅ 已完成
+- 响应式设计：media query
+
+### 第12次课（2026-05-25）✅ 已完成
+- ES6 语法进阶：模板字符串 / 解构赋值 / 展开运算符
+
+### 第13次课（2026-05-26）✅ 已完成
+- Git 版本控制入门
+
+### 第14次课（2026-05-28）✅ 已完成
+- Git 分支（branch）
+
+### 第15次课（2026-05-28）✅ 已完成
+- fetch API 入门
+
+### 第16次课（2026-05-28）✅ 已完成
+- async / await
+
+### 第17次课（2026-05-28）✅ 已完成
+- Node.js 入门（HTTP 服务器）
+
+### 第18次课（2026-05-28）✅ 已完成
+- Node.js 路由 + JSON
+
 ### 下次课待学
-- 待定
+- 第18课练习：自己加 /hobby 路由
 
 ## 教学风格偏好（重要）
 1. 以老师身份教导，把我当完全零基础的新手
@@ -60,6 +102,7 @@
 - `my-hobby.css`：样式文件
 - `my-hobby.js`：交互功能文件
 - `学习进度.html`：学习进度和总结文档
+- `server.js`：Node.js 服务器文件
 - `img/`：图片资源目录
 - `AGENTS.md`：本文件（AI 记忆文件）
 
@@ -70,3 +113,6 @@
 4. if...else 写在函数外面：逻辑要放在 function {} 里面
 5. 布尔值 true 写成字符串 "true"：直接写 `if (done)` 即可
 6. innerText vs innerHTML 混用：显示 HTML 标签用 innerHTML
+7. id 和 onclick 搞混：按钮用 onclick 绑定函数，不是用 id
+8. oncilck 拼写错误：应为 onclick
+9. if 的 } 后面加分号：if...else if 中间不能加分号

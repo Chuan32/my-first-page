@@ -139,6 +139,7 @@
     <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第15课</span> 2026-05-28 · fetch API 入门</div>
     <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第16课</span> 2026-05-28 · async / await</div>
     <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第17课</span> 2026-05-28 · Node.js 入门</div>
+    <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第18课</span> 2026-05-28 · Node.js 路由 + JSON</div>
 </div>
 
 <!-- ==================== 第1次课 ==================== -->
@@ -654,6 +655,34 @@
     <div class="topic"><span class="check yes">✓</span> 练习2：修改返回内容，显示自己的名字</div>
 </div>
 
+<!-- ==================== 第18次课 ==================== -->
+<div class="section">
+    <h2>📗 第18课：Node.js 路由 + JSON <span class="tag tag-green">2026-05-28</span></h2>
+
+    <h3>📍 路由（Routing）</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>req.url</code> 获取浏览器请求的路径</div>
+    <div class="topic"><span class="check yes">✓</span> <code>if (req.url === "/")</code> 首页</div>
+    <div class="topic"><span class="check yes">✓</span> <code>else if (req.url === "/data")</code> 返回 JSON</div>
+    <div class="topic"><span class="check yes">✓</span> <code>else { 404 }</code> 找不到页面</div>
+
+    <h3>📦 返回 JSON</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>Content-Type: application/json</code> 告诉浏览器返回的是 JSON</div>
+    <div class="topic"><span class="check yes">✓</span> <code>JSON.stringify(对象)</code> 把 JS 对象转成 JSON 字符串</div>
+
+    <h3>🔢 状态码</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>200</code> OK 请求成功</div>
+    <div class="topic"><span class="check yes">✓</span> <code>404</code> Not Found 页面不存在</div>
+
+    <h3>✏️ 练习</h3>
+    <div class="topic"><span class="check ok">!</span> 待完成：自己加一个 <code>/hobby</code> 路由，返回爱好 JSON</div>
+
+    <h3>🚨 犯过的错误</h3>
+    <div class="mistake">
+        <strong>❌ 问题18：</strong><code>if</code> 的 <code>}</code> 后面加了 <code>;</code>，导致 <code>else if</code> 报错<br>
+        <strong>✅ 正确：</strong><code>if...else if...else</code> 是一个整体，中间不能加分号
+    </div>
+</div>
+
 <!-- ==================== 常犯错误大全 ==================== -->
 <div class="section">
     <h2>📌 常犯错误大全（快速查阅）</h2>
@@ -713,7 +742,7 @@
 </div>
 
 <div class="footer">
-    学习记录更新于 2026年5月28日 · 共17次课
+    学习记录更新于 2026年5月28日 · 共18次课
 </div>
 
 </div>
