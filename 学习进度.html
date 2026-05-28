@@ -135,6 +135,8 @@
     <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第11课</span> 2026-05-25 · 响应式设计（media query）</div>
     <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第12课</span> 2026-05-25 · ES6 语法进阶</div>
     <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第13课</span> 2026-05-26 · Git 版本控制入门</div>
+    <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第14课</span> 2026-05-28 · Git 分支（branch）</div>
+    <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第15课</span> 2026-05-28 · fetch API 入门</div>
 </div>
 
 <!-- ==================== 第1次课 ==================== -->
@@ -556,6 +558,58 @@
     </div>
 </div>
 
+<!-- ==================== 第14次课 ==================== -->
+<div class="section">
+    <h2>📗 第14课：Git 分支（branch） <span class="tag tag-green">2026-05-28</span></h2>
+
+    <h3>🌿 什么是分支</h3>
+    <div class="topic"><span class="check yes">✓</span> 分支 = 平行宇宙，互不干扰</div>
+    <div class="topic"><span class="check yes">✓</span> 在分支里改代码不会影响 <code>master</code></div>
+    <div class="topic"><span class="check yes">✓</span> 功能做完后 <code>merge</code> 回 <code>master</code>，再删掉分支</div>
+
+    <h3>🔧 核心命令</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>git branch</code> 查看所有分支（当前分支有 <code>*</code> 标记）</div>
+    <div class="topic"><span class="check yes">✓</span> <code>git branch 分支名</code> 创建新分支</div>
+    <div class="topic"><span class="check yes">✓</span> <code>git checkout 分支名</code> 切换到指定分支</div>
+    <div class="topic"><span class="check yes">✓</span> <code>git checkout -b 分支名</code> 创建 + 切换一步完成</div>
+    <div class="topic"><span class="check yes">✓</span> <code>git merge 分支名</code> 把分支的修改合并到当前分支</div>
+    <div class="topic"><span class="check yes">✓</span> <code>git branch -d 分支名</code> 删除分支</div>
+
+    <h3>✏️ 练习</h3>
+    <div class="topic"><span class="check yes">✓</span> 创建 like-button 分支</div>
+    <div class="topic"><span class="check yes">✓</span> 在分支里加"点赞"功能（❤️ 按钮）</div>
+    <div class="topic"><span class="check yes">✓</span> 提交后切回 master，merge 合并</div>
+    <div class="topic"><span class="check yes">✓</span> 删除 like-button 分支</div>
+</div>
+
+<!-- ==================== 第15次课 ==================== -->
+<div class="section">
+    <h2>📗 第15课：fetch API 入门 <span class="tag tag-green">2026-05-28</span></h2>
+
+    <h3>🌐 什么是 API</h3>
+    <div class="topic"><span class="check yes">✓</span> API = 服务员，你告诉它要什么，它给你端来数据</div>
+    <div class="topic"><span class="check yes">✓</span> 免费公开 API 例子：<code>jsonplaceholder.typicode.com</code></div>
+
+    <h3>📡 fetch 语法</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>fetch("URL")</code> 去服务器请求数据</div>
+    <div class="topic"><span class="check yes">✓</span> <code>.then(res => res.json())</code> 把响应转成 JS 对象</div>
+    <div class="topic"><span class="check yes">✓</span> <code>.then(data => { ... })</code> 拿到数据后操作</div>
+
+    <h3>✏️ 练习</h3>
+    <div class="topic"><span class="check yes">✓</span> 练习1：用 fetch 获取 /todos/1 并显示标题和完成状态</div>
+    <div class="topic"><span class="check yes">✓</span> 练习2：自己写 fetchTodo5() 获取第5条待办</div>
+
+    <h3>🚨 犯过的错误</h3>
+    <div class="mistake">
+        <strong>❌ 问题16：</strong>按钮用了 <code>id="fetchTodo"</code> 而不是 <code>onclick="fetchTodo()"</code><br>
+        <strong>✅ 正确：</strong><code>id</code> 只是取名字，要触发函数必须用 <code>onclick</code>
+    </div>
+    <div class="mistake">
+        <strong>❌ 问题17：</strong><code>oncilck</code> 拼写错误（l 和 c 反了）<br>
+        <strong>✅ 正确：</strong>应该是 <code>onclick</code>
+    </div>
+</div>
+
 <!-- ==================== 常犯错误大全 ==================== -->
 <div class="section">
     <h2>📌 常犯错误大全（快速查阅）</h2>
@@ -615,7 +669,7 @@
 </div>
 
 <div class="footer">
-    学习记录更新于 2026年5月26日 · 共13次课
+    学习记录更新于 2026年5月28日 · 共15次课
 </div>
 
 </div>
