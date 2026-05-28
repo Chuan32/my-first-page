@@ -137,6 +137,7 @@
     <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第13课</span> 2026-05-26 · Git 版本控制入门</div>
     <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第14课</span> 2026-05-28 · Git 分支（branch）</div>
     <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第15课</span> 2026-05-28 · fetch API 入门</div>
+    <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第16课</span> 2026-05-28 · async / await</div>
 </div>
 
 <!-- ==================== 第1次课 ==================== -->
@@ -610,6 +611,28 @@
     </div>
 </div>
 
+<!-- ==================== 第16次课 ==================== -->
+<div class="section">
+    <h2>📗 第16课：async / await <span class="tag tag-green">2026-05-28</span></h2>
+
+    <h3>📖 为什么需要 async/await</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>.then()</code> 嵌套多了变成"回调地狱"</div>
+    <div class="topic"><span class="check yes">✓</span> async/await 让异步代码像普通代码一样从上往下读</div>
+
+    <h3>🔧 语法</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>async function fn() { ... }</code> 标记函数里有等待操作</div>
+    <div class="topic"><span class="check yes">✓</span> <code>await fetch("URL")</code> 等数据回来才往下走</div>
+    <div class="topic"><span class="check yes">✓</span> <code>await res.json()</code> 等转成 JS 对象</div>
+
+    <h3>✏️ 练习</h3>
+    <div class="topic"><span class="check yes">✓</span> 练习1：把 fetchTodo 从 .then 改写成 async/await</div>
+    <div class="topic"><span class="check yes">✓</span> 练习2：把 fetchTodo5 从 .then 改写成 async/await</div>
+
+    <h3>📊 新旧对比</h3>
+    <div class="topic"><span class="check ok">!</span> 旧：<code>.then(res => res.json()).then(data => { ... })</code></div>
+    <div class="topic"><span class="check ok">!</span> 新：<code>let res = await fetch(...); let data = await res.json();</code></div>
+</div>
+
 <!-- ==================== 常犯错误大全 ==================== -->
 <div class="section">
     <h2>📌 常犯错误大全（快速查阅）</h2>
@@ -669,7 +692,7 @@
 </div>
 
 <div class="footer">
-    学习记录更新于 2026年5月28日 · 共15次课
+    学习记录更新于 2026年5月28日 · 共16次课
 </div>
 
 </div>

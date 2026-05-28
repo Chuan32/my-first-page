@@ -625,18 +625,15 @@ document.getElementById("like-button").addEventListener("click", () => {
     document.getElementById("like-count").innerText = likeCount;
 });
 
-function fetchTodo(){
-    fetch("https://jsonplaceholder.typicode.com/todos/1")
-    .then(res => res.json())
-    .then(data => {
+async function fetchTodo(){
+    let res = await fetch("https://jsonplaceholder.typicode.com/todos/1")
+    let data = await res.json();
         document.getElementById("display").innerText = "标题:" + data.title + "| 完成状态" + (data.completed ? "✅" : "⬜");
-})
 }
 
-function fetchTodo5(){
-    fetch("https://jsonplaceholder.typicode.com/todos/5")
-    .then(res => res.json())
-    .then(data => {
-        document.getElementById("display").innerText = "标题:" + data.title + "| 完成状态" + (data.completed ? "✅" : "⬜");
-})
+async function fetchTodo5(){
+    let res = await fetch("https://jsonplaceholder.typicode.com/todos/5")
+    let data = await res.json();
+    document.getElementById("display").innerText = "标题:" + data.title + "| 完成状态" + (data.completed ? "✅" : "⬜");
+
 }
