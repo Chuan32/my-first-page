@@ -138,6 +138,7 @@
     <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第14课</span> 2026-05-28 · Git 分支（branch）</div>
     <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第15课</span> 2026-05-28 · fetch API 入门</div>
     <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第16课</span> 2026-05-28 · async / await</div>
+    <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第17课</span> 2026-05-28 · Node.js 入门</div>
 </div>
 
 <!-- ==================== 第1次课 ==================== -->
@@ -633,6 +634,26 @@
     <div class="topic"><span class="check ok">!</span> 新：<code>let res = await fetch(...); let data = await res.json();</code></div>
 </div>
 
+<!-- ==================== 第17次课 ==================== -->
+<div class="section">
+    <h2>📗 第17课：Node.js 入门 <span class="tag tag-green">2026-05-28</span></h2>
+
+    <h3>📖 Node.js 是什么</h3>
+    <div class="topic"><span class="check yes">✓</span> Node.js = 让 JavaScript 可以在浏览器以外的地方运行</div>
+    <div class="topic"><span class="check yes">✓</span> 可以读写文件、搭建服务器、连接数据库</div>
+
+    <h3>🔧 第一个 Node.js 服务器</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>require("http")</code> 引入 http 模块</div>
+    <div class="topic"><span class="check yes">✓</span> <code>http.createServer((req, res) => {...})</code> 创建服务器</div>
+    <div class="topic"><span class="check yes">✓</span> <code>res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" })</code> 设置响应头和编码</div>
+    <div class="topic"><span class="check yes">✓</span> <code>res.end("HTML内容")</code> 返回内容给浏览器</div>
+    <div class="topic"><span class="check yes">✓</span> <code>server.listen(3000)</code> 在 3000 端口监听</div>
+
+    <h3>✏️ 练习</h3>
+    <div class="topic"><span class="check yes">✓</span> 练习1：运行 node server.js 启动服务器</div>
+    <div class="topic"><span class="check yes">✓</span> 练习2：修改返回内容，显示自己的名字</div>
+</div>
+
 <!-- ==================== 常犯错误大全 ==================== -->
 <div class="section">
     <h2>📌 常犯错误大全（快速查阅）</h2>
@@ -692,7 +713,7 @@
 </div>
 
 <div class="footer">
-    学习记录更新于 2026年5月28日 · 共16次课
+    学习记录更新于 2026年5月28日 · 共17次课
 </div>
 
 </div>
