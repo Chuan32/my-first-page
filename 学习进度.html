@@ -687,6 +687,59 @@
     </div>
 </div>
 
+<!-- ==================== 第19次课 ==================== -->
+<div class="section">
+    <h2>📗 第19课：Express 框架入门 <span class="tag tag-green">2026-05-28</span></h2>
+
+    <h3>📖 Express 是什么</h3>
+    <div class="topic"><span class="check yes">✓</span> Express = 比原生 Node.js 更简单的 Web 框架</div>
+    <div class="topic"><span class="check yes">✓</span> 原生：<code>http.createServer()</code> + <code>if(req.url)</code></div>
+    <div class="topic"><span class="check yes">✓</span> Express：<code>express()</code> + <code>app.get()</code></div>
+
+    <h3>🔧 核心 API</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>app.get(路径, 回调)</code> 处理 GET 请求</div>
+    <div class="topic"><span class="check yes">✓</span> <code>app.post(路径, 回调)</code> 处理 POST 请求</div>
+    <div class="topic"><span class="check yes">✓</span> <code>res.send(内容)</code> 返回内容（自动设 Content-Type）</div>
+    <div class="topic"><span class="check yes">✓</span> <code>res.json(对象)</code> 返回 JSON（自动设 application/json）</div>
+    <div class="topic"><span class="check yes">✓</span> <code>res.status(404).send(...)</code> 设置状态码并返回</div>
+
+    <h3>📂 静态文件服务</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>app.use(express.static('.'))</code> 公开文件夹</div>
+    <div class="topic"><span class="check yes">✓</span> 一行代码就能在浏览器访问 HTML/CSS/JS 文件</div>
+
+    <h3>📍 路由参数</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>/user/:id</code> 用 <code>:</code> 声明变量</div>
+    <div class="topic"><span class="check yes">✓</span> <code>req.params.id</code> 获取 URL 中的值</div>
+
+    <h3>📨 POST + 请求体</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>app.use(express.json())</code> 解析 JSON 请求体</div>
+    <div class="topic"><span class="check yes">✓</span> <code>req.body</code> 拿到前端发来的数据</div>
+    <div class="topic"><span class="check yes">✓</span> 用 <code>fetch</code> 发 POST 请求测试</div>
+
+    <h3>🔗 前端 + 后端联调（fetch + POST）</h3>
+    <div class="topic"><span class="check yes">✓</span> 表单用 <code>onsubmit="return false"</code> 阻止页面刷新</div>
+    <div class="topic"><span class="check yes">✓</span> 按钮调 <code>async function</code> 用 <code>await fetch</code> 发 POST</div>
+    <div class="topic"><span class="check yes">✓</span> <code>document.getElementById('result').innerText</code> 在当前页显示结果</div>
+    <div class="topic"><span class="check ok">!</span> 浏览器地址栏只能发 GET，发 POST 必须用表单或 fetch</div>
+
+    <h3>🔄 nodemon</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>npm install -g nodemon</code> 全局安装</div>
+    <div class="topic"><span class="check yes">✓</span> <code>nodemon server-express.js</code> 自动重启</div>
+
+    <h3>⚠️ 中间件顺序很重要</h3>
+    <div class="topic"><span class="check ok">!</span> 代码从上往下执行</div>
+    <div class="topic"><span class="check ok">!</span> <code>express.static</code> 要放在 404 处理 <strong>前面</strong></div>
+    <div class="topic"><span class="check ok">!</span> 404 处理要放在所有路由 <strong>最后面</strong></div>
+
+    <h3>✏️ 练习</h3>
+    <div class="topic"><span class="check yes">✓</span> 练习1：把原生 server.js 改写成 Express 版本</div>
+    <div class="topic"><span class="check yes">✓</span> 练习2：用 <code>res.send()</code> 和 <code>res.json()</code> 替换原生写法</div>
+    <div class="topic"><span class="check yes">✓</span> 练习3：加静态文件服务，通过 Express 访问 my-hobby.html</div>
+    <div class="topic"><span class="check yes">✓</span> 练习4：用路由参数 <code>/user/:id</code> 返回 JSON</div>
+    <div class="topic"><span class="check yes">✓</span> 练习5：用 <code>app.post()</code> 接收前端 POST 数据</div>
+    <div class="topic"><span class="check yes">✓</span> 练习6：用 fetch 在 <code>/form</code> 页面发 POST，不跳转显示结果</div>
+</div>
+
 <!-- ==================== 常犯错误大全 ==================== -->
 <div class="section">
     <h2>📌 常犯错误大全（快速查阅）</h2>
@@ -743,10 +796,16 @@
         <strong>🔟 alert 放在 if 条件里</strong><br>
         <code>if (alert(...))</code> ❌ → <code>if (条件) { alert(...) }</code> ✅
     </div>
+
+    <div class="mistake">
+        <strong>1️⃣1️⃣ 创建对象忘了加 <code>{}</code></strong><br>
+        <code>res.json(message: "收到！", data: req.body)</code> ❌ → <code>res.json({message: "收到！", data: req.body})</code> ✅<br>
+        对象必须用 <code>{}</code> 包起来，就像数组必须用 <code>[]</code>
+    </div>
 </div>
 
 <div class="footer">
-    学习记录更新于 2026年5月28日 · 共18次课
+    学习记录更新于 2026年5月28日 · 共19次课
 </div>
 
 </div>
