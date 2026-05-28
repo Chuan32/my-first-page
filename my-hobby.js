@@ -619,3 +619,8 @@ messageBoard.addEventListener("click", (event) => {
     
 
 });
+let likeCount = 0;
+document.getElementById("like-button").addEventListener("click", () => {
+    likeCount++;
+    document.getElementById("like-count").innerText = likeCount;
+});
