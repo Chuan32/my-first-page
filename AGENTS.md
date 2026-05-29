@@ -83,6 +83,16 @@
 - Node.js 路由 + JSON
 - 练习：自己加 /hobby 路由（独立返回爱好 JSON 数组）
 
+### 第19次课（2026-05-28）✅ 已完成
+- Express 框架入门
+- 练习：改写原生 server.js 为 Express 版本
+
+### 第20次课（2026-05-29）✅ 已完成
+- 数据库 SQLite 入门
+- better-sqlite3 安装和使用
+- CRUD（增删改查）SQL 语法
+- Express + SQLite 集成（GET/POST/DELETE）
+
 ### 下次课待学
 
 ## 教学风格偏好（重要）
@@ -105,6 +115,9 @@
 - `server.js`：Node.js 服务器文件
 - `img/`：图片资源目录
 - `AGENTS.md`：本文件（AI 记忆文件）
+- `server-express.js`：Express + SQLite 服务器文件（第19-20课）
+- `test-db.js`：数据库练习文件（第20课）
+- `data.db`：SQLite 数据库文件（第20课）
 
 ## 常犯错误（需特别注意提醒）
 1. 函数调用忘记加 ()：`onclick="fn"` 应为 `onclick="fn()"`
@@ -116,3 +129,5 @@
 7. id 和 onclick 搞混：按钮用 onclick 绑定函数，不是用 id
 8. oncilck 拼写错误：应为 onclick
 9. if 的 } 后面加分号：if...else if 中间不能加分号
+10. let 重复声明变量：不能用 let 声明两次同一个变量名
+11. 变量名拼写不一致：声明和调用名字必须完全一样（如 insertHobby vs insertHobyy）
