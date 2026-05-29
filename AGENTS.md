@@ -92,6 +92,10 @@
 - better-sqlite3 安装和使用
 - CRUD（增删改查）SQL 语法
 - Express + SQLite 集成（GET/POST/DELETE）
+- PUT 方法更新数据（切换待办完成状态）
+- 综合项目：数据库版 Todo List（前端 fetch → 后端 Express → SQLite）
+- 统计功能：filter 筛出已完成 + 模板字符串显示
+- 清除已完成：for...of 循环逐条删除
 
 ### 下次课待学
 
@@ -131,3 +135,5 @@
 9. if 的 } 后面加分号：if...else if 中间不能加分号
 10. let 重复声明变量：不能用 let 声明两次同一个变量名
 11. 变量名拼写不一致：声明和调用名字必须完全一样（如 insertHobby vs insertHobyy）
+12. CRETATE 拼写错误：CREATE TABLE 不是 CRETATE TABLE
+13. API 路径拼写错误：/api/todos 写成 /api/totos

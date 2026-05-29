@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List - 数据库版</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background: #f0f2f5;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 24px;
+        }
+        .add-form {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .add-form input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+        .add-form input:focus {
+            border-color: #3498db;
+        }
+        .add-form button {
+            padding: 10px 20px;
+            background: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .add-form button:hover {
+            background: #2980b9;
+        }
+        .todo-list {
+            list-style: none;
+        }
+        .todo-item {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        }
+        .todo-text {
+            flex: 1;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .todo-text.done {
+            text-decoration: line-through;
+            color: #999;
+        }
+        .todo-time {
+            font-size: 12px;
+            color: #aaa;
+            margin-right: 12px;
+        }
+        .delete-btn {
+            padding: 4px 10px;
+            background: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .delete-btn:hover {
+            background: #c0392b;
+        }
+        .loading {
+            text-align: center;
+            color: #999;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="container">
+        <h1>📋 Todo List</h1>
+
+        <!-- 添加待办的表单 -->
+        <div class="add-form">
+            <input id="todoInput" placeholder="写点什么..." onkeydown="if(event.key==='Enter') addTodo()">
+            <button onclick="addTodo()">添加</button>
+            <button onclick="clearDone()">清除已完成</button>
+        </div>
+
+        <div id="stats">
+        </div>
+
+        <!-- 待办列表 -->
+        <ul id="todoList" class="todo-list">
+            <li class="loading">加载中...</li>
+        </ul>
+    </div>
+
+    <script>
+        // 获取所有待办 (GET /api/todos)
+        async function loadTodos() {
+            let res = await fetch('/api/todos');
+            let todos = await res.json();
+            renderTodos(todos);
+        }
+
+        // 渲染待办列表
+        function renderTodos(todos) {
+            let list = document.getElementById('todoList');
+            list.innerHTML = '';  // 清空列表
+            let total = todos.length;
+            let doneCount = todos.filter(t => t.done).length;
+            let pendingCount = total - doneCount;
+            document.getElementById('stats').innerText =
+            `📊 总共 ${total} 项 · 已完成 ${doneCount} 项 · 未完成 ${pendingCount} 项`;
+
+            // 如果没数据，显示提示
+            if (todos.length === 0) {
+                list.innerHTML = '<li style="text-align:center;color:#999;padding:40px">还没有待办，添加一条吧！</li>';
+                return;
+            }
+
+            // 遍历每条待办，用 createElement 创建
+            todos.forEach(todo => {
+                let li = document.createElement('li');
+                li.className = 'todo-item';
+
+                // 待办文字（点击切换完成状态）
+                let textSpan = document.createElement('span');
+                textSpan.className = 'todo-text' + (todo.done ? ' done' : '');
+                textSpan.innerText = todo.text;
+                // 点击切换完成状态
+                textSpan.onclick = () => toggleTodo(todo.id);
+
+                // 创建时间
+                let timeSpan = document.createElement('span');
+                timeSpan.className = 'todo-time';
+                timeSpan.innerText = todo.createdAt || '';
+
+                // 删除按钮
+                let delBtn = document.createElement('button');
+                delBtn.className = 'delete-btn';
+                delBtn.innerText = '删除';
+                delBtn.onclick = () => deleteTodo(todo.id);
+
+                li.appendChild(textSpan);
+                li.appendChild(timeSpan);
+                li.appendChild(delBtn);
+                list.appendChild(li);
+            });
+        }
+
+        // 添加待办 (POST /api/todos)
+        async function addTodo() {
+            let input = document.getElementById('todoInput');
+            let text = input.value.trim();
+            if (!text) {
+                alert('请输入待办内容！');
+                return;
+            }
+
+            // 发送 POST 请求到后端
+            let res = await fetch('/api/todos', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text })
+            });
+
+            if (res.ok) {
+                input.value = '';     // 清空输入框
+                loadTodos();          // 重新加载列表
+            } else {
+                let err = await res.json();
+                alert('添加失败：' + err.message);
+            }
+        }
+
+        // 切换完成状态 (PUT /api/todos/:id)
+        async function toggleTodo(id) {
+            let res = await fetch('/api/todos/' + id, {
+                method: 'PUT'
+            });
+
+            if (res.ok) {
+                loadTodos();  // 重新加载列表
+            } else {
+                let err = await res.json();
+                alert('操作失败：' + err.message);
+            }
+        }
+
+        // 删除待办 (DELETE /api/todos/:id)
+        async function deleteTodo(id) {
+            if (!confirm('确定要删除吗？')) return;
+
+            let res = await fetch('/api/todos/' + id, {
+                method: 'DELETE'
+            });
+
+            if (res.ok) {
+                loadTodos();  // 重新加载列表
+            } else {
+                let err = await res.json();
+                alert('删除失败：' + err.message);
+            }
+        }
+
+        async function clearDone(){
+            let res = await fetch('/api/todos')
+            let todos = await res.json();
+            let doneTodos = todos.filter(t => t.done);
+            if (doneTodos.length === 0){
+                alert("没有已完成的待办")
+                return;
+            }
+            if(!confirm('确定要清除 ' + doneTodos.length + '项已完成的待办吗？')) return;
+            for(let todo of doneTodos){
+                await fetch('/api/todos/' + todo.id,{method:'DELETE'});
+
+            }
+            loadTodos();
+        }
+
+
+
+        // 页面加载时获取数据
+        loadTodos();
+    </script>
+</body>
+</html>

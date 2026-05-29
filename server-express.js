@@ -26,6 +26,17 @@ db.exec(`
     hobby TEXT NOT NULL,
     userId INTEGER)`)
 
+// 建表：todos 表
+// id = 自动编号, text = 待办内容, done = 是否完成(0或1), createdAt = 创建时间
+db.exec(`
+    CREATE TABLE IF NOT EXISTS todos (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        text TEXT NOT NULL,
+        done INTEGER DEFAULT 0,
+        createdAt TEXT DEFAULT (datetime('now', 'localtime'))
+    )
+`);
+
 // 首页
 app.get('/', (req, res) => {
     res.send("<h1>首页</h1><p>这是 Express + SQLite 服务器</p>");
@@ -77,6 +88,26 @@ app.post('/hobby', (req, res) => {
     res.json({ id: result.lastInsertRowid,hobby , userId, message: '添加成功！' });
 })
 
+// ========== Todo List API ==========
+
+// 获取所有待办 (GET /api/todos)
+app.get('/api/todos', (req, res) => {
+    let todos = db.prepare('SELECT * FROM todos ORDER BY id DESC').all();
+    res.json(todos);
+});
+
+// 添加待办 (POST /api/todos)
+app.post('/api/todos', (req, res) => {
+    let { text } = req.body;
+    if (!text) {
+        return res.status(400).json({ message: '请输入待办内容' });
+    }
+    let result = db.prepare('INSERT INTO todos (text) VALUES (?)').run(text);
+    // 把刚插入的数据查出来返回给前端
+    let newTodo = db.prepare('SELECT * FROM todos WHERE id = ?').get(result.lastInsertRowid);
+    res.json(newTodo);
+});
+
 // 删除用户 (DELETE /user/:id)
 app.delete('/user/:id', (req, res) => {
     let result = db.prepare('DELETE FROM users WHERE id = ?').run(req.params.id);
@@ -93,6 +124,30 @@ app.delete('/hobby/:id', (req, res) => {
         res.json({ message: '删除成功' });
     } else {
         res.status(404).json({ message: '爱好不存在' });
+    }
+});
+
+// 切换待办完成状态 (PUT /api/todos/:id)
+// PUT 通常用来"更新"数据
+app.put('/api/todos/:id', (req, res) => {
+    let todo = db.prepare('SELECT * FROM todos WHERE id = ?').get(req.params.id);
+    if (!todo) {
+        return res.status(404).json({ message: '待办不存在' });
+    }
+    // 把 done 取反：0变1，1变0
+    let newDone = todo.done ? 0 : 1;
+    db.prepare('UPDATE todos SET done = ? WHERE id = ?').run(newDone, req.params.id);
+    let updatedTodo = db.prepare('SELECT * FROM todos WHERE id = ?').get(req.params.id);
+    res.json(updatedTodo);
+});
+
+// 删除待办 (DELETE /api/todos/:id)
+app.delete('/api/todos/:id', (req, res) => {
+    let result = db.prepare('DELETE FROM todos WHERE id = ?').run(req.params.id);
+    if (result.changes > 0) {
+        res.json({ message: '删除成功' });
+    } else {
+        res.status(404).json({ message: '待办不存在' });
     }
 });
 

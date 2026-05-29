@@ -779,6 +779,19 @@
     <div class="topic"><span class="check yes">✓</span> 练习1：创建 hobbies 表（id, hobby, userId）</div>
     <div class="topic"><span class="check yes">✓</span> 练习2：插入爱好数据并查询</div>
 
+    <h3>📦 综合项目：数据库版 Todo List</h3>
+    <div class="topic"><span class="check yes">✓</span> <code>todo.html</code> 前端页面 + <code>server-express.js</code> 后端 API + <code>data.db</code> 数据库</div>
+    <div class="topic"><span class="check yes">✓</span> <code>GET /api/todos</code> 查全部待办（<code>ORDER BY id DESC</code>）</div>
+    <div class="topic"><span class="check yes">✓</span> <code>POST /api/todos</code> 添加待办（<code>INSERT</code>）</div>
+    <div class="topic"><span class="check yes">✓</span> <code>PUT /api/todos/:id</code> 切换完成状态（<code>UPDATE</code>，新学的）</div>
+    <div class="topic"><span class="check yes">✓</span> <code>DELETE /api/todos/:id</code> 删除待办</div>
+    <div class="topic"><span class="check yes">✓</span> 数据流向：前端 <code>fetch</code> → 后端 Express → SQLite 数据库 → 返回 JSON</div>
+    <div class="topic"><span class="check yes">✓</span> <code>done</code> 字段：数据库存 <code>0/1</code>，JS 里当作 <code>true/false</code> 用</div>
+    <div class="topic"><span class="check yes">✓</span> <code>createdAt</code> 自动生成：<code>datetime('now','localtime')</code></div>
+    <div class="topic"><span class="check yes">✓</span> <code>todos.filter(t => t.done)</code> 统计已完成数量</div>
+    <div class="topic"><span class="check yes">✓</span> <code>for...of</code> 循环遍历已完成的待办，逐条删除</div>
+    <div class="topic"><span class="check yes">✓</span> <code>template string</code> 嵌入统计数字：<code>`总共 ${total} 项`</code></div>
+
     <h3>🚨 第20课犯过的错误</h3>
     <div class="mistake">
         <strong>❌ 问题20：</strong><code>let</code> 重复声明同一个变量<br>
