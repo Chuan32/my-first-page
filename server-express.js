@@ -6,9 +6,7 @@ let express = require('express');
 let Database = require('better-sqlite3');
 
 let app = express();
-let dbPath = process.env.DB_PATH || 'data.db';
-let db = new Database(dbPath);
-console.log("📦 数据库文件: " + dbPath);
+let db = new Database('data.db');
 
 // 解析前端发来的 JSON
 app.use(express.json());
@@ -161,7 +159,6 @@ app.use((req, res) => {
     res.status(404).send("<h1>404 Not Found</h1>");
 });
 
-let PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log("🚀 服务器已启动: http://localhost:" + PORT);
+app.listen(3000, () => {
+    console.log("🚀 服务器已启动: http://localhost:3000");
 });
