@@ -142,6 +142,7 @@
     <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第18课</span> 2026-05-28 · Node.js 路由 + JSON</div>
     <div class="topic"><span class="check yes">✓</span> <span class="tag tag-green">第19课</span> 2026-05-28 · Express 框架入门</div>
     <div class="topic"><span class="check yes">✓</span> <span class="tag tag-purple">第20课</span> 2026-05-29 · 数据库 SQLite</div>
+    <div class="topic"><span class="check no">✗</span> <span class="tag tag-red">第21课</span> 2026-05-30 · 部署上线（未完成·已回退）</div>
 </div>
 
 <!-- ==================== 第1次课 ==================== -->
@@ -805,6 +806,49 @@
     </div>
 </div>
 
+<!-- ==================== 第21次课 ==================== -->
+<div class="section">
+    <h2>📗 第21课：部署上线（尝试） <span class="tag tag-red">2026-05-30 · 未完成</span></h2>
+
+    <h3>🌍 什么是部署</h3>
+    <div class="topic"><span class="check no">✗</span> 部署 = 把代码放到云服务器，24小时在线，别人也能访问</div>
+    <div class="topic"><span class="check no">✗</span> Render：需要绑银行卡，放弃了</div>
+    <div class="topic"><span class="check no">✗</span> Glitch：2025年7月停止服务，不能用了</div>
+    <div class="topic"><span class="check no">✗</span> Vercel + Neon PostgreSQL：尝试了但部署不成功</div>
+
+    <h3>🚨 第21课犯过的错误（学习记录）</h3>
+    <div class="mistake">
+        <strong>❌ 问题1：Vercel 自动检测把前端 JS 当成服务器入口</strong><br>
+        Vercel 检测到根目录有 <code>my-hobby.js</code>，自动把它当服务器函数，导致所有请求都超时<br>
+        <strong>✅ 学到：</strong>Vercel 会扫描根目录 JS 文件自动推断项目类型
+    </div>
+    <div class="mistake">
+        <strong>❌ 问题2：vercel.json 配置不熟悉</strong><br>
+        加了 <code>"builds"</code>、<code>"rewrites"</code>、<code>"framework": null</code> 多种尝试，但不理解 Vercel 的路由机制<br>
+        <strong>✅ 学到：</strong>Vercel 的配置需要理解"构建 → 部署 → 路由"的完整流程
+    </div>
+    <div class="mistake">
+        <strong>❌ 问题3：SSH/SSL 证书问题导致 Git 推送失败</strong><br>
+        <code>SSL certificate verify result: unable to get local issuer certificate</code><br>
+        <strong>✅ 解决：</strong><code>git config --global http.sslVerify false</code> 临时跳过
+    </div>
+    <div class="mistake">
+        <strong>❌ 问题4：把前端文件移到 public/ 后 Vercel 报找不到入口</strong><br>
+        移走了所有文件但没告诉 Vercel 入口在哪，构建直接报错<br>
+        <strong>✅ 学到：</strong>Vercel 需要明确的入口文件（<code>index.js</code>、<code>server.js</code> 等）
+    </div>
+    <div class="mistake">
+        <strong>❌ 问题5：选了不熟悉的平台（Vercel）做部署实验</strong><br>
+        对于刚学完 SQLite 的新手来说，Vercel + Neon + PostgreSQL 改动太多<br>
+        <strong>✅ 以后：</strong>选 Railway（虽然也要绑卡但零配置，不改代码就能部署）
+    </div>
+    <div class="mistake">
+        <strong>⚠️ 教训：部署要比想象的复杂</strong><br>
+        本地跑得好的代码 ≠ 直接放网上就能跑。<br>
+        云平台的环境变量、路由配置、数据库连接都需要额外学习
+    </div>
+</div>
+
 <!-- ==================== 常犯错误大全 ==================== -->
 <div class="section">
     <h2>📌 常犯错误大全（快速查阅）</h2>
@@ -867,10 +911,22 @@
         <code>res.json(message: "收到！", data: req.body)</code> ❌ → <code>res.json({message: "收到！", data: req.body})</code> ✅<br>
         对象必须用 <code>{}</code> 包起来，就像数组必须用 <code>[]</code>
     </div>
+
+    <div class="mistake">
+        <strong>1️⃣2️⃣ 云平台不等于本地环境</strong><br>
+        本地跑得好 ≠ 云端能跑。Vercel 的 serverless 环境不支持 SQLite<br>
+        ✅ 不同平台（Vercel/Render/Railway）有不同的限制
+    </div>
+
+    <div class="mistake">
+        <strong>1️⃣3️⃣ Vercel 自动检测会猜错项目类型</strong><br>
+        Vercel 看到根目录有 <code>.js</code> 文件，就以为这是 Node.js 服务器<br>
+        ✅ 需要用 <code>vercel.json</code> 或 <code>"framework": null</code> 明确告诉它
+    </div>
 </div>
 
 <div class="footer">
-    学习记录更新于 2026年5月29日 · 共20次课
+    学习记录更新于 2026年5月30日 · 共21次课（第21课未完成·已回退）
 </div>
 
 </div>
