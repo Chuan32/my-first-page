@@ -1,6 +1,5 @@
 // Vercel serverless function：Express + Neon PostgreSQL
 // 本地开发还是用 server-express.js（SQLite）
-// 这个文件只有在 Vercel 部署时才会运行
 
 let express = require('express');
 let { neon } = require('@neondatabase/serverless');
@@ -8,23 +7,19 @@ let { neon } = require('@neondatabase/serverless');
 let app = express();
 app.use(express.json());
 
-// 连接 Neon PostgreSQL 数据库
 let sql = neon(process.env.DATABASE_URL);
 
-// 初始化数据库表（第一次请求时创建）
+// 初始化数据库表
 sql`
     CREATE TABLE IF NOT EXISTS todos (
         id SERIAL PRIMARY KEY,
         text TEXT NOT NULL,
         done INTEGER DEFAULT 0,
-        createdAt TIMESTAMP DEFAULT NOW()
+        "createdAt" TIMESTAMP DEFAULT NOW()
     )
-`.then(() => console.log('✅ 数据库表已就绪'))
-.catch(err => console.error('❌ 建表失败:', err));
+`.catch(err => console.error('建表失败:', err.message));
 
-// ========== Todo List API ==========
-
-// 获取所有待办 (GET /api/todos)
+// 获取所有待办
 app.get('/api/todos', async (req, res) => {
     try {
         let todos = await sql`SELECT * FROM todos ORDER BY id DESC`;
@@ -34,14 +29,13 @@ app.get('/api/todos', async (req, res) => {
     }
 });
 
-// 添加待办 (POST /api/todos)
+// 添加待办
 app.post('/api/todos', async (req, res) => {
     try {
         let { text } = req.body;
         if (!text) {
             return res.status(400).json({ message: '请输入待办内容' });
         }
-        // RETURNING * 是 PostgreSQL 的语法，插入后直接返回完整数据
         let [todo] = await sql`
             INSERT INTO todos (text) VALUES (${text}) RETURNING *
         `;
@@ -51,7 +45,7 @@ app.post('/api/todos', async (req, res) => {
     }
 });
 
-// 切换待办完成状态 (PUT /api/todos/:id)
+// 切换完成状态
 app.put('/api/todos/:id', async (req, res) => {
     try {
         let [todo] = await sql`
@@ -70,11 +64,11 @@ app.put('/api/todos/:id', async (req, res) => {
     }
 });
 
-// 删除待办 (DELETE /api/todos/:id)
+// 删除待办
 app.delete('/api/todos/:id', async (req, res) => {
     try {
         let result = await sql`
-            DELETE FROM todos WHERE id = ${req.params.id}
+            DELETE FROM todos WHERE id = ${req.params.id} RETURNING *
         `;
         if (result.length > 0) {
             res.json({ message: '删除成功' });
@@ -86,5 +80,4 @@ app.delete('/api/todos/:id', async (req, res) => {
     }
 });
 
-// 导出 Express app 给 Vercel
 module.exports = app;
